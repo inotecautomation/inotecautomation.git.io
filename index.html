@@ -19,24 +19,24 @@
       color: #fff;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (QUADRO REMOVIDO) ===== */
     header {
-      background: rgba(0,0,0,0.25);
-      border-radius: 20px;
-      padding: 20px 0;
-      width: 90%;
-      max-width: 1200px;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
       margin: 20px auto;
+      width: 100%;
+      max-width: none;
       text-align: center;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+      box-shadow: none !important;
     }
 
     header img {
       width: 800px;
       max-width: 100%;
       height: auto;
-      border-radius: 18px;
+      border-radius: 0 !important; /* remove bordas arredondadas */
     }
 
     @media (max-width: 900px) {
@@ -51,7 +51,7 @@
       header img { width: 280px; }
     }
 
-    /* ===== CARROSSEL (CORRIGIDO) ===== */
+    /* ===== CARROSSEL ===== */
     .carousel {
       position: relative;
       width: 90%;
@@ -60,8 +60,6 @@
       margin: 40px auto;
       overflow: hidden;
       border-radius: 18px;
-
-      /* sem fundo */
       background: transparent !important;
       backdrop-filter: none !important;
       box-shadow: none !important;
@@ -90,7 +88,6 @@
       100% { opacity: 0; }
     }
 
-    /* Responsividade do carrossel */
     @media (max-width: 600px) {
       .carousel { height: 320px; }
     }
@@ -99,7 +96,7 @@
       .carousel { height: 260px; }
     }
 
-    /* ===== CAIXA GLASS ===== */
+    /* ===== GLASS BOX ===== */
     .glass {
       background: rgba(255,255,255,0.08);
       backdrop-filter: blur(6px);
@@ -154,12 +151,12 @@
 </head>
 <body>
 
-  <!-- LOGO -->
+  <!-- LOGO LIMPO / SEM QUADRO -->
   <header>
     <img src="Inotec_logo.jpg" alt="Logo INOTEC">
   </header>
 
-  <!-- CARROSSEL SEM FUNDO (FUNCIONANDO) -->
+  <!-- CARROSSEL -->
   <div class="carousel">
     <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Imagem 1">
     <img src="https://delta-ia-tips.com/wp-content/uploads/2012/07/dvp_p_s_20100323.jpg" alt="Imagem 2">
@@ -175,7 +172,7 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- RODAPÉ -->
   <footer>
     © 2025 INOTEC Automação Industrial e Retrofit de Máquinas — Todos os direitos reservados.
   </footer>
