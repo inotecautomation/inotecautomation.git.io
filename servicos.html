@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serviços | INOTEC Automação Industrial</title>
 
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* ===== ESTILO GLOBAL ===== */
     body {
+      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
-      color: #222;
+      background-image: url('fundo.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
     }
 
-    /* ===== CABEÇALHO COM LOGO CENTRALIZADO E ARREDONDADO ===== */
+    /* ===== HEADER ===== */
     header {
-      width: 100%;
-      background: none; /* Sem barra ou fundo */
       text-align: center;
-      padding: 20px 0;
+      margin: 20px auto;
     }
 
-    header .logo img {
-      width: 100%;
-      max-width: 6000px; /* controla a largura máxima */
-      aspect-ratio: 3 / 1; /* mantém a proporção 6000 x 2000 */
+    header img {
+      width: 800px;
+      max-width: 100%;
       height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 40px; /* <<< Bordas arredondadas */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* leve sombra opcional */
+      border-radius: 25px;
     }
 
-    /* Espaço após o cabeçalho */
-    .spacer {
-      height: 40px;
-    }
+    @media (max-width: 900px) { header img { width: 500px; } }
+    @media (max-width: 600px) { header img { width: 340px; } }
+    @media (max-width: 420px) { header img { width: 280px; } }
 
-    /* ===== CONTEÚDO ===== */
-    .content {
-      max-width: 1000px;
+    /* ===== GLASS BOX ===== */
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 40px;
       margin: 40px auto;
-      padding: 0 20px;
+      width: 90%;
+      max-width: 1200px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
 
     h2 {
-      color: #005792;
       text-align: center;
-      font-size: 1.8em;
+      font-size: 2em;
       margin-bottom: 30px;
     }
 
@@ -64,87 +61,86 @@
     }
 
     .service {
-      background-color: #f9f9f9;
-      border-radius: 12px;
+      background: rgba(255,255,255,0.10);
       padding: 25px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: 0.3s;
     }
 
     .service:hover {
-      transform: translateY(-5px);
+      transform: scale(1.04);
+      background: rgba(255,255,255,0.15);
     }
 
     .service h3 {
-      color: #002b5b;
       margin-bottom: 10px;
     }
 
     .service p {
-      color: #444;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
+    /* FOOTER */
     footer {
-      background-color: #002b5b;
-      color: white;
+      background-color: rgba(0,0,0,0.3);
+      color: #fff;
       text-align: center;
       padding: 15px;
       font-size: 0.9em;
-      margin-top: 60px;
+      border-radius: 12px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 1200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
-    /* RESPONSIVIDADE */
-    @media (max-width: 700px) {
-      header .logo img {
-        max-width: 100%;
-        border-radius: 25px; /* borda menor em telas pequenas */
-      }
-    }
   </style>
+
 </head>
 <body>
 
-  <!-- ===== CABEÇALHO ===== -->
+  <!-- LOGO -->
   <header>
-    <div class="logo">
-      <img src="Inotec_logo.jpg" alt="Logo INOTEC">
-    </div>
+    <img src="Inotec_logo.jpg" alt="Logo INOTEC">
   </header>
 
-  <div class="spacer"></div>
+  <!-- GLASS CONTENT -->
+  <div class="glass">
 
-  <div class="content">
     <h2>Nossos Serviços</h2>
 
     <div class="services">
+
       <div class="service">
         <h3>🔧 Retrofit de Máquinas</h3>
-        <p>Modernização completa de máquinas industriais, substituindo painéis antigos por CLPs e IHMs de última geração, garantindo confiabilidade e eficiência.</p>
+        <p>Modernização completa de máquinas industriais com CLPs e IHMs de última geração.</p>
       </div>
 
       <div class="service">
         <h3>⚙️ Automação Industrial</h3>
-        <p>Projetos personalizados de automação com CLPs Delta, Siemens, Weg e IHMs Weintek. Programação Ladder e integração Modbus, Ethernet e Wi-Fi.</p>
+        <p>Projetos sob medida com CLPs Delta, Siemens, Weg e IHMs Weintek.</p>
       </div>
 
       <div class="service">
         <h3>📊 Sistemas de Monitoramento</h3>
-        <p>Supervisão de processos e dados em tempo real, dashboards e alarmes integrados para maior controle e produtividade.</p>
+        <p>Supervisão de dados e processos em tempo real.</p>
       </div>
 
       <div class="service">
         <h3>💡 Painéis Elétricos</h3>
-        <p>Montagem de painéis industriais sob medida, conforme normas NR-10 e NR-12, com documentação técnica completa.</p>
+        <p>Montagem industrial conforme NR-10 e NR-12.</p>
       </div>
 
       <div class="service">
         <h3>🔌 Integração de Sensores e Atuação</h3>
-        <p>Instalação e parametrização de sensores, inversores, servomotores e módulos analógicos para controle preciso de processos.</p>
+        <p>Instalação e parametrização de sensores, inversores e servomotores.</p>
       </div>
+
     </div>
   </div>
 
+  <!-- RODAPÉ -->
   <footer>
     © 2025 INOTEC Automação Industrial e Retrofit de Máquinas — Todos os direitos reservados.
   </footer>
