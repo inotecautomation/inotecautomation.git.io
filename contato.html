@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato | INOTEC Automação Industrial</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
   <style>
     * {
       margin: 0;
@@ -14,81 +15,38 @@
     }
 
     body {
-      font-family: 'Segoe UI', Script, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #ffffff;
       color: #222;
     }
 
-    /* ===== CABEÇALHO ===== */
+    /* ===== CABEÇALHO PADRONIZADO ===== */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
-      background: linear-gradient(90deg, #0B0B0B, #0F0F0F);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 50px 200px;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    header .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      opacity: 0;
-      transform: translateY(-10px);
-      animation: logoFade 1.2s ease-out forwards;
+      background: none;
+      text-align: center;
+      padding: 20px 0;
     }
 
     header .logo img {
-      height: 200px;
-    }
-
-header .logo h1 {
-  font-family: 'Arni', cursive;
-  font-size: 3.8em;
-}
-
-
-
-    @keyframes logoFade {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: 0.3s;
-      padding: 6px 10px;
-      border-radius: 5px;
-    }
-
-    nav a:hover {
-      background-color: #00b4d8;
+      width: 100%;
+      max-width: 6000px; /* para combinar com as outras páginas */
+      aspect-ratio: 3 / 1;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 40px; /* bordas arredondadas igual às outras */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     .spacer {
-      height: 500px;
+      height: 40px;
     }
 
     /* ===== CONTEÚDO ===== */
     .content {
       max-width: 800px;
-      margin: 60px auto;
+      margin: 40px auto;
       padding: 0 20px;
       text-align: center;
     }
@@ -96,7 +54,7 @@ header .logo h1 {
     h2 {
       color: #005792;
       font-size: 1.8em;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     p {
@@ -121,7 +79,7 @@ header .logo h1 {
       height: 80px;
       border-radius: 50%;
       background-color: #f1f1f1;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
     }
 
@@ -133,10 +91,9 @@ header .logo h1 {
 
     .social-button:hover {
       transform: scale(1.1);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
     }
 
-    /* Cores individuais no hover */
     .youtube:hover { background-color: #FF0000; }
     .instagram:hover { background-color: #E1306C; }
     .linkedin:hover { background-color: #0077B5; }
@@ -151,17 +108,11 @@ header .logo h1 {
       margin-top: 60px;
     }
 
+    /* RESPONSIVIDADE */
     @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      header .logo h1 {
-        font-size: 1em;
+      header .logo img {
+        max-width: 100%;
+        border-radius: 25px;
       }
     }
   </style>
@@ -172,15 +123,7 @@ header .logo h1 {
   <header>
     <div class="logo">
       <img src="Inotec_logo.jpg" alt="Logo INOTEC">
-      <h1>INOTEC Automação Industrial e Retrofit de Máquinas</h1>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="servicos.html">Serviços</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
   </header>
 
   <div class="spacer"></div>
@@ -214,18 +157,3 @@ header .logo h1 {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
