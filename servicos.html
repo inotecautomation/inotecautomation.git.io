@@ -19,21 +19,23 @@
       color: #222;
     }
 
-    /* ===== CABEÇALHO COM APENAS O LOGO ===== */
+    /* ===== CABEÇALHO COM LOGO CENTRALIZADO E ARREDONDADO ===== */
     header {
       width: 100%;
-      background: none; /* Remove barra azul */
+      background: none; /* Sem barra ou fundo */
       text-align: center;
       padding: 20px 0;
     }
 
     header .logo img {
       width: 100%;
-      max-width: 6000px; /* largura desejada */
-      aspect-ratio: 3 / 1; /* mantém proporção 6000x2000 */
+      max-width: 6000px; /* controla a largura máxima */
+      aspect-ratio: 3 / 1; /* mantém a proporção 6000 x 2000 */
       height: auto;
       display: block;
       margin: 0 auto;
+      border-radius: 40px; /* <<< Bordas arredondadas */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* leve sombra opcional */
     }
 
     /* Espaço após o cabeçalho */
@@ -96,6 +98,7 @@
     @media (max-width: 700px) {
       header .logo img {
         max-width: 100%;
+        border-radius: 25px; /* borda menor em telas pequenas */
       }
     }
   </style>
