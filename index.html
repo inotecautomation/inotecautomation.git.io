@@ -22,7 +22,7 @@
 
     /* ===== HEADER ===== */
     header {
-      background: transparent;   /* removida a barra azul */
+      background: transparent;
       text-align: center;
       padding: 20px 0;
       display: flex;
@@ -31,12 +31,32 @@
     }
 
     header img {
-      height: 220px;  /* você pode ajustar aqui se quiser maior */
-      max-width: 90%;
+      width: 100%;
+      max-width: 600px;   /* tamanho ideal em computadores */
+      height: auto;
     }
 
-    /* Texto removido, então h1 foi excluído */
-    
+    /* Tablets */
+    @media (max-width: 900px) {
+      header img {
+        max-width: 450px;
+      }
+    }
+
+    /* Smartphones grandes */
+    @media (max-width: 600px) {
+      header img {
+        max-width: 320px;
+      }
+    }
+
+    /* Smartphones pequenos */
+    @media (max-width: 420px) {
+      header img {
+        max-width: 260px;
+      }
+    }
+
     /* ===== CARROSSEL ===== */
     .carousel {
       position: relative;
@@ -109,28 +129,6 @@
       letter-spacing: 0.5px;
       margin-top: 40px;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
-    }
-
-    /* ===== RESPONSIVIDADE ===== */
-    @media (max-width: 900px) {
-      header img { height: 180px; }
-    }
-
-    @media (max-width: 600px) {
-      header img { height: 150px; }
-      .carousel { margin-top: 20px; }
-      .buttons { gap: 15px; }
-      .buttons a {
-        width: 80%;
-        text-align: center;
-        padding: 14px;
-        font-size: 1em;
-      }
-    }
-
-    @media (max-width: 420px) {
-      header img { height: 120px; }
-      .buttons a { width: 90%; }
     }
 
   </style>
