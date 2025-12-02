@@ -12,15 +12,14 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('fundo.png'); /* fundo otimizado */
+      background-image: url('fundo.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       color: #fff;
-      backdrop-filter: blur(2px);
     }
 
-    /* ===== HEADER / LOGO ===== */
+    /* ===== HEADER ===== */
     header {
       background: rgba(0,0,0,0.25);
       border-radius: 20px;
@@ -33,46 +32,45 @@
       box-shadow: 0 4px 18px rgba(0,0,0,0.4);
     }
 
-    /* Logotipo ajustável */
     header img {
-      width: 800px;   /* largura no PC */
-      height: auto;
+      width: 800px;
       max-width: 100%;
+      height: auto;
       border-radius: 18px;
     }
 
-    /* Tablet */
     @media (max-width: 900px) {
       header img { width: 500px; }
     }
 
-    /* Smartphones grandes */
     @media (max-width: 600px) {
       header img { width: 340px; }
     }
 
-    /* Smartphones pequenos */
     @media (max-width: 420px) {
       header img { width: 280px; }
     }
 
-    /* ===== CARROSSEL — SEM FUNDO ===== */
+    /* ===== CARROSSEL (CORRIGIDO) ===== */
     .carousel {
       position: relative;
-      max-width: 90%;
-      width: 680px;
+      width: 90%;
+      max-width: 680px;
+      height: 480px;
       margin: 40px auto;
       overflow: hidden;
       border-radius: 18px;
-      background: transparent !important;       /* FUNDO REMOVIDO */
-      backdrop-filter: none !important;         /* remove blur */
-      box-shadow: none !important;              /* remove sombra */
+
+      /* sem fundo */
+      background: transparent !important;
+      backdrop-filter: none !important;
+      box-shadow: none !important;
     }
 
     .carousel img {
       position: absolute;
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
       opacity: 0;
       animation: fade 20s infinite;
@@ -92,7 +90,16 @@
       100% { opacity: 0; }
     }
 
-    /* ===== CAIXA DOS BOTÕES (glass) ===== */
+    /* Responsividade do carrossel */
+    @media (max-width: 600px) {
+      .carousel { height: 320px; }
+    }
+
+    @media (max-width: 420px) {
+      .carousel { height: 260px; }
+    }
+
+    /* ===== CAIXA GLASS ===== */
     .glass {
       background: rgba(255,255,255,0.08);
       backdrop-filter: blur(6px);
@@ -135,13 +142,11 @@
       color: white;
       text-align: center;
       padding: 15px;
-      margin-top: 40px;
       font-size: 0.9em;
       border-radius: 12px;
       width: 90%;
       max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 40px auto;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
@@ -149,12 +154,12 @@
 </head>
 <body>
 
-  <!-- LOGO ------------------------------>
+  <!-- LOGO -->
   <header>
     <img src="Inotec_logo.jpg" alt="Logo INOTEC">
   </header>
 
-  <!-- CARROSSEL (sem fundo) ------------>
+  <!-- CARROSSEL SEM FUNDO (FUNCIONANDO) -->
   <div class="carousel">
     <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Imagem 1">
     <img src="https://delta-ia-tips.com/wp-content/uploads/2012/07/dvp_p_s_20100323.jpg" alt="Imagem 2">
@@ -162,7 +167,7 @@
     <img src="https://assets.new.siemens.com/siemens/assets/api/uuid:949810fa4b3b04bf5027400fa6bb8e0b83b51c03/width:1125/quality:high/crop:0,0:0,2265625:0,9978142076502732:0,501953125/digital-layer-basic-controller.tif" alt="Imagem 4">
   </div>
 
-  <!-- BOTÕES EM CAIXA GLASS ------------>
+  <!-- BOTÕES -->
   <div class="glass">
     <div class="buttons">
       <a href="servicos.html">Serviços Prestados</a>
@@ -170,7 +175,7 @@
     </div>
   </div>
 
-  <!-- RODAPÉ --------------------------->
+  <!-- FOOTER -->
   <footer>
     © 2025 INOTEC Automação Industrial e Retrofit de Máquinas — Todos os direitos reservados.
   </footer>
