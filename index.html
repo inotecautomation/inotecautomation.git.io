@@ -1,153 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serviços | INOTEC Automação Industrial</title>
+  <title>INOTEC Automação Industrial e Retrofit de Máquinas</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* ===== ESTILO GLOBAL ===== */
     body {
+      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
+      background-image: url('fundo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: #222;
     }
 
-    /* ===== CABEÇALHO COM APENAS O LOGO ===== */
+    /* ===== HEADER ===== */
     header {
-      width: 100%;
-      background: none; /* Remove barra azul */
+      background: transparent;   /* removida a barra azul */
       text-align: center;
       padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    header .logo img {
-      width: 100%;
-      max-width: 6000px; /* largura desejada */
-      aspect-ratio: 3 / 1; /* mantém proporção 6000x2000 */
+    header img {
+      height: 220px;  /* você pode ajustar aqui se quiser maior */
+      max-width: 90%;
+    }
+
+    /* Texto removido, então h1 foi excluído */
+    
+    /* ===== CARROSSEL ===== */
+    .carousel {
+      position: relative;
+      max-width: 90%;
+      width: 680px;
       height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-    /* Espaço após o cabeçalho */
-    .spacer {
-      height: 40px;
-    }
-
-    /* ===== CONTEÚDO ===== */
-    .content {
-      max-width: 1000px;
+      aspect-ratio: 680 / 480;
       margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    h2 {
-      color: #005792;
-      text-align: center;
-      font-size: 1.8em;
-      margin-bottom: 30px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .service {
-      background-color: #f9f9f9;
+      overflow: hidden;
       border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-
-    .service:hover {
-      transform: translateY(-5px);
-    }
-
-    .service h3 {
-      color: #002b5b;
-      margin-bottom: 10px;
-    }
-
-    .service p {
-      color: #444;
-      line-height: 1.5;
-    }
-
-    footer {
-      background-color: #002b5b;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-      margin-top: 60px;
-    }
-
-    /* RESPONSIVIDADE */
-    @media (max-width: 700px) {
-      header .logo img {
-        max-width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ===== CABEÇALHO ===== -->
-  <header>
-    <div class="logo">
-      <img src="Inotec_logo.jpg" alt="Logo INOTEC">
-    </div>
-  </header>
-
-  <div class="spacer"></div>
-
-  <div class="content">
-    <h2>Nossos Serviços</h2>
-
-    <div class="services">
-      <div class="service">
-        <h3>🔧 Retrofit de Máquinas</h3>
-        <p>Modernização completa de máquinas industriais, substituindo painéis antigos por CLPs e IHMs de última geração, garantindo confiabilidade e eficiência.</p>
-      </div>
-
-      <div class="service">
-        <h3>⚙️ Automação Industrial</h3>
-        <p>Projetos personalizados de automação com CLPs Delta, Siemens, Weg e IHMs Weintek. Programação Ladder e integração Modbus, Ethernet e Wi-Fi.</p>
-      </div>
-
-      <div class="service">
-        <h3>📊 Sistemas de Monitoramento</h3>
-        <p>Supervisão de processos e dados em tempo real, dashboards e alarmes integrados para maior controle e produtividade.</p>
-      </div>
-
-      <div class="service">
-        <h3>💡 Painéis Elétricos</h3>
-        <p>Montagem de painéis industriais sob medida, conforme normas NR-10 e NR-12, com documentação técnica completa.</p>
-      </div>
-
-      <div class="service">
-        <h3>🔌 Integração de Sensores e Atuação</h3>
-        <p>Instalação e parametrização de sensores, inversores, servomotores e módulos analógicos para controle preciso de processos.</p>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 INOTEC Automação Industrial e Retrofit de Máquinas — Todos os direitos reservados.
-  </footer>
-
-</body>
-</html>
 
     .carousel img {
       position: absolute;
@@ -210,21 +111,13 @@
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
 
-    /* =============================
-             RESPONSIVIDADE
-       ============================= */
-
-    /* Tablets */
+    /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 900px) {
       header img { height: 180px; }
-      header h1 { font-size: 1.5em; }
-      .buttons a { font-size: 1em; padding: 12px 24px; }
     }
 
-    /* Smartphones grandes */
     @media (max-width: 600px) {
       header img { height: 150px; }
-      header h1 { font-size: 1.3em; }
       .carousel { margin-top: 20px; }
       .buttons { gap: 15px; }
       .buttons a {
@@ -235,10 +128,8 @@
       }
     }
 
-    /* Smartphones pequenos */
     @media (max-width: 420px) {
       header img { height: 120px; }
-      header h1 { font-size: 1.1em; }
       .buttons a { width: 90%; }
     }
 
@@ -248,7 +139,6 @@
 
   <header>
     <img src="Inotec_logo.jpg" alt="Logo INOTEC">
-    <h1>INOTEC AUTOMAÇÃO INDUSTRIAL E RETROFIT DE MÁQUINAS</h1>
   </header>
 
   <div class="carousel">
@@ -269,11 +159,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
