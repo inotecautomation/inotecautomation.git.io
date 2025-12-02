@@ -11,77 +11,72 @@
     /* ===== ESTILO GLOBAL ===== */
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('fundo.png'); /* <<< IMAGEM DE FUNDO */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('fundo.png'); /* fundo otimizado */
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      color: #222;
-    }
-
-    /* ===== EFEITO VIDRO ===== */
-    .glass {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
-      padding: 20px;
-      margin: auto;
-      width: 92%;
-      max-width: 1100px;
+      color: #fff;
+      backdrop-filter: blur(2px);
     }
 
     /* ===== HEADER / LOGO ===== */
     header {
+      background: rgba(0,0,0,0.25);
+      border-radius: 20px;
+      padding: 20px 0;
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
       text-align: center;
-      padding: 40px 0 10px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
     }
 
+    /* Logotipo ajustável */
     header img {
-      width: 800px;   /* <<< ajuste largura do logo no PC */
-      height: auto;   
+      width: 800px;   /* largura no PC */
+      height: auto;
       max-width: 100%;
-      border-radius: 20px;     /* <<< logo arredondado */
-      box-shadow: 0 6px 30px rgba(0,0,0,0.35);
-      transition: transform 0.4s ease;
+      border-radius: 18px;
     }
 
-    header img:hover {
-      transform: scale(1.03);
-    }
-
-    /* Responsividade do logo */
+    /* Tablet */
     @media (max-width: 900px) {
       header img { width: 500px; }
     }
+
+    /* Smartphones grandes */
     @media (max-width: 600px) {
-      header img { width: 330px; }
-    }
-    @media (max-width: 420px) {
-      header img { width: 260px; }
+      header img { width: 340px; }
     }
 
-    /* ===== CARROSSEL ===== */
+    /* Smartphones pequenos */
+    @media (max-width: 420px) {
+      header img { width: 280px; }
+    }
+
+    /* ===== CARROSSEL — SEM FUNDO ===== */
     .carousel {
       position: relative;
-      width: 90%;
-      max-width: 680px;
-      aspect-ratio: 680 / 480;
+      max-width: 90%;
+      width: 680px;
       margin: 40px auto;
       overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 6px 40px rgba(0,0,0,0.4);
+      border-radius: 18px;
+      background: transparent !important;       /* FUNDO REMOVIDO */
+      backdrop-filter: none !important;         /* remove blur */
+      box-shadow: none !important;              /* remove sombra */
     }
 
     .carousel img {
       position: absolute;
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
       opacity: 0;
       animation: fade 20s infinite;
-      transition: opacity 1s ease-in-out;
+      border-radius: 18px;
     }
 
     .carousel img:nth-child(1) { animation-delay: 0s; }
@@ -97,67 +92,85 @@
       100% { opacity: 0; }
     }
 
+    /* ===== CAIXA DOS BOTÕES (glass) ===== */
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 1200px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
     /* ===== BOTÕES ===== */
     .buttons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 25px;
-      margin: 40px auto 60px;
+      gap: 20px;
     }
 
     .buttons a {
-      background: linear-gradient(135deg, #005792, #00b4d8);
+      background-color: #0077b6;
       color: white;
       text-decoration: none;
-      padding: 16px 36px;
-      border-radius: 14px;
+      padding: 14px 30px;
+      border-radius: 12px;
       font-size: 1.2em;
       font-weight: 600;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.28);
-      transition: 0.35s ease;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
     .buttons a:hover {
-      transform: scale(1.08);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      background-color: #00b4d8;
+      transform: scale(1.05);
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background: rgba(0, 30, 60, 0.88);
+      background-color: rgba(0, 0, 0, 0.3);
       color: white;
       text-align: center;
-      padding: 20px;
-      font-size: 0.95em;
-      margin-top: 70px;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      box-shadow: 0 -3px 20px rgba(0,0,0,0.3);
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 0.9em;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
   </style>
 </head>
 <body>
 
+  <!-- LOGO ------------------------------>
   <header>
     <img src="Inotec_logo.jpg" alt="Logo INOTEC">
   </header>
 
-  <div class="glass">
-    <div class="carousel">
-      <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Imagem 1">
-      <img src="https://delta-ia-tips.com/wp-content/uploads/2012/07/dvp_p_s_20100323.jpg" alt="Imagem 2">
-      <img src="https://lojavale.cdn.magazord.com.br/img/2024/09/produto/3311/02-clp-schneider-tm200ce24r-14-entradas-10-saidas-110-220v.png?ims=600x600" alt="Imagem 3">
-      <img src="https://assets.new.siemens.com/siemens/assets/api/uuid:949810fa4b3b04bf5027400fa6bb8e0b83b51c03/width:1125/quality:high/crop:0,0:0,2265625:0,9978142076502732:0,501953125/digital-layer-basic-controller.tif" alt="Imagem 4">
-    </div>
+  <!-- CARROSSEL (sem fundo) ------------>
+  <div class="carousel">
+    <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Imagem 1">
+    <img src="https://delta-ia-tips.com/wp-content/uploads/2012/07/dvp_p_s_20100323.jpg" alt="Imagem 2">
+    <img src="https://lojavale.cdn.magazord.com.br/img/2024/09/produto/3311/02-clp-schneider-tm200ce24r-14-entradas-10-saidas-110-220v.png?ims=600x600" alt="Imagem 3">
+    <img src="https://assets.new.siemens.com/siemens/assets/api/uuid:949810fa4b3b04bf5027400fa6bb8e0b83b51c03/width:1125/quality:high/crop:0,0:0,2265625:0,9978142076502732:0,501953125/digital-layer-basic-controller.tif" alt="Imagem 4">
+  </div>
 
+  <!-- BOTÕES EM CAIXA GLASS ------------>
+  <div class="glass">
     <div class="buttons">
       <a href="servicos.html">Serviços Prestados</a>
       <a href="contato.html">Entre em Contato</a>
     </div>
   </div>
 
+  <!-- RODAPÉ --------------------------->
   <footer>
     © 2025 INOTEC Automação Industrial e Retrofit de Máquinas — Todos os direitos reservados.
   </footer>
