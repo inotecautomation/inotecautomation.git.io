@@ -1,156 +1,145 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Arni&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato | INOTEC Automação Industrial</title>
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* ===== ESTILO GLOBAL ===== */
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
-      color: #222;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('fundo.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
     }
 
-    /* ===== CABEÇALHO PADRONIZADO ===== */
+    /* ===== HEADER ===== */
     header {
-      width: 100%;
-      background: none;
       text-align: center;
-      padding: 20px 0;
+      margin: 20px auto;
     }
 
-    header .logo img {
-      width: 100%;
-      max-width: 6000px; /* para combinar com as outras páginas */
-      aspect-ratio: 3 / 1;
+    header img {
+      width: 800px;
+      max-width: 100%;
       height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 40px; /* bordas arredondadas igual às outras */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-radius: 25px;
     }
 
-    .spacer {
-      height: 40px;
-    }
+    @media (max-width: 900px) { header img { width: 500px; } }
+    @media (max-width: 600px) { header img { width: 340px; } }
+    @media (max-width: 420px) { header img { width: 280px; } }
 
-    /* ===== CONTEÚDO ===== */
-    .content {
-      max-width: 800px;
+    /* ===== GLASS ===== */
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 30px;
       margin: 40px auto;
-      padding: 0 20px;
+      width: 90%;
+      max-width: 900px;
       text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     }
 
-    h2 {
-      color: #005792;
-      font-size: 1.8em;
-      margin-bottom: 20px;
+    .title {
+      font-size: 2em;
+      margin-bottom: 25px;
     }
 
-    p {
-      font-size: 1.1em;
-      color: #333;
-      margin-bottom: 40px;
-    }
-
-    /* ===== BOTÕES DE REDES SOCIAIS ===== */
-    .social-buttons {
+    /* ===== BOTÕES COM ÍCONES ===== */
+    .buttons {
       display: flex;
-      justify-content: center;
-      gap: 30px;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
     }
 
-    .social-button {
+    .buttons a {
+      background-color: #0077b6;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-size: 1.2em;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background-color: #f1f1f1;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
+      gap: 12px;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
-    .social-button img {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s ease;
+    .buttons a:hover {
+      background-color: #00b4d8;
+      transform: scale(1.05);
     }
 
-    .social-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    .buttons img {
+      width: 32px;
+      height: 32px;
     }
 
-    .youtube:hover { background-color: #FF0000; }
-    .instagram:hover { background-color: #E1306C; }
-    .linkedin:hover { background-color: #0077B5; }
-    .whatsapp:hover { background-color: #25D366; }
-
+    /* ===== FOOTER ===== */
     footer {
-      background-color: #002b5b;
-      color: white;
+      background-color: rgba(0,0,0,0.3);
+      color: #fff;
       text-align: center;
       padding: 15px;
       font-size: 0.9em;
-      margin-top: 60px;
-    }
-
-    /* RESPONSIVIDADE */
-    @media (max-width: 700px) {
-      header .logo img {
-        max-width: 100%;
-        border-radius: 25px;
-      }
+      border-radius: 12px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 1200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
   </style>
+
 </head>
 <body>
 
-  <!-- ===== CABEÇALHO ===== -->
+  <!-- LOGO -->
   <header>
-    <div class="logo">
-      <img src="Inotec_logo.jpg" alt="Logo INOTEC">
-    </div>
+    <img src="Inotec_logo.jpg" alt="Logo INOTEC">
   </header>
 
-  <div class="spacer"></div>
+  <!-- GLASS CONTAINER -->
+  <div class="glass">
+    <div class="title">Entre em Contato</div>
 
-  <div class="content">
-    <h2>Entre em Contato Conosco</h2>
-    <p>Conecte-se com a INOTEC pelas redes sociais abaixo ou envie sua mensagem para nós.</p>
+    <div class="buttons">
 
-    <div class="social-buttons">
-      <a class="social-button youtube" href="https://www.youtube.com" target="_blank" title="YouTube">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg" alt="YouTube">
+      <a href="https://wa.me/5511999999999" target="_blank">
+        <img src="whatsapp.png">
+        WhatsApp
       </a>
 
-      <a class="social-button instagram" href="https://www.instagram.com" target="_blank" title="Instagram">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+      <a href="https://instagram.com" target="_blank">
+        <img src="instagram.png">
+        Instagram
       </a>
 
-      <a class="social-button linkedin" href="https://www.linkedin.com" target="_blank" title="LinkedIn">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Linkedin_circle.svg" alt="LinkedIn">
+      <a href="https://youtube.com" target="_blank">
+        <img src="youtube.png">
+        YouTube
       </a>
 
-      <a class="social-button whatsapp" href="https://wa.me/+5551985290509" target="_blank" title="WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      <a href="https://linkedin.com" target="_blank">
+        <img src="linkedin.png">
+        LinkedIn
       </a>
+
     </div>
   </div>
 
+  <!-- RODAPÉ -->
   <footer>
     © 2025 INOTEC Automação Industrial e Retrofit de Máquinas — Todos os direitos reservados.
   </footer>
