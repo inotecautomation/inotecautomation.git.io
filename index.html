@@ -45,7 +45,7 @@
       overflow-x: hidden;
     }
     
-    /* ===== CABEÇALHO COM LOGO AUMENTADO ===== */
+    /* ===== CABEÇALHO COM LOGO AUMENTADO E TEXTO CENTRALIZADO ===== */
     .main-header {
       position: fixed;
       top: 0;
@@ -57,7 +57,7 @@
       padding: 5px 5%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center; /* CENTRALIZADO HORIZONTALMENTE */
       transition: var(--transition);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
@@ -69,15 +69,17 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 20px;
+      width: 100%;
+      justify-content: center; /* CENTRALIZADO */
     }
     
     .logo {
-      width: 140px; /* AUMENTADO EM 100% (era 70px) */
-      height: 140px; /* AUMENTADO EM 100% (era 70px) */
+      width: 140px;
+      height: 140px;
       border-radius: 20px;
       object-fit: cover;
-      border: 3px solid #000000; /* ALTERADO PARA PRETO (era var(--accent)) */
+      border: 3px solid #000000;
       transition: var(--transition);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
@@ -91,21 +93,24 @@
       display: flex;
       flex-direction: column;
       text-align: center;
-      width: 100%;
+      align-items: center; /* CENTRALIZADO VERTICALMENTE */
+      justify-content: center; /* CENTRALIZADO */
+      flex-grow: 1; /* OCUPA O ESPAÇO DISPONÍVEL */
     }
     
     .company-title h1 {
-      font-family: 'Impact', sans-serif; /* FONTE IMPACT */
-      font-size: 2.8rem; /* AUMENTADO EM 100% (era 1.4rem) */
+      font-family: 'Impact', sans-serif;
+      font-size: 2.8rem;
       font-weight: 800;
       color: var(--text-light);
       letter-spacing: 1px;
       text-transform: uppercase;
+      margin: 0;
     }
     
     .company-title p {
-      font-family: 'Impact', sans-serif; /* FONTE IMPACT */
-      font-size: 1.6rem; /* AUMENTADO EM 100% (era 0.8rem) */
+      font-family: 'Impact', sans-serif;
+      font-size: 1.6rem;
       color: var(--accent);
       margin-top: 5px;
       font-weight: 600;
@@ -117,6 +122,8 @@
       display: flex;
       list-style: none;
       gap: 25px;
+      position: absolute;
+      right: 5%; /* POSICIONADO À DIREITA */
     }
     
     .nav-menu a {
@@ -155,17 +162,19 @@
       color: var(--text-light);
       font-size: 1.5rem;
       cursor: pointer;
+      position: absolute;
+      right: 20px;
     }
     
     /* ===== CONTEÚDO PRINCIPAL ===== */
     .main-content {
-      margin-top: 200px; /* AUMENTADO (era 70px) para dar mais espaço após header */
+      margin-top: 150px;
       padding: 0 5%;
     }
     
     section {
       margin-bottom: 60px;
-      scroll-margin-top: 150px; /* Ajustado para header maior */
+      scroll-margin-top: 150px;
     }
     
     .section-title {
@@ -198,7 +207,7 @@
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 30px auto 50px; /* AUMENTADO espaçamento superior para 30px */
+      margin: 30px auto 50px;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -420,16 +429,16 @@
     }
     
     .footer-logo {
-      width: 120px; /* Aumentado proporcionalmente */
-      height: 120px; /* Aumentado proporcionalmente */
+      width: 120px;
+      height: 120px;
       border-radius: 20px;
       margin-bottom: 15px;
-      border: 3px solid #000000; /* Alterado para preto */
+      border: 3px solid #000000;
     }
     
     .footer-content h3 {
-      font-family: 'Impact', sans-serif; /* FONTE IMPACT */
-      font-size: 1.8rem; /* Aumentado */
+      font-family: 'Impact', sans-serif;
+      font-size: 1.8rem;
       margin-bottom: 10px;
     }
     
@@ -459,16 +468,20 @@
       }
       
       .logo {
-        width: 100px; /* Ajustado proporcionalmente */
+        width: 100px;
         height: 100px;
       }
       
       .company-title h1 {
-        font-size: 2rem; /* Ajustado para tablet */
+        font-size: 2rem;
       }
       
       .company-title p {
-        font-size: 1.1rem; /* Ajustado para tablet */
+        font-size: 1.1rem;
+      }
+      
+      .nav-menu {
+        right: 3%;
       }
     }
     
@@ -476,14 +489,15 @@
       .main-header {
         padding: 4px 20px;
         flex-direction: column;
-        text-align: center;
+        justify-content: center;
       }
       
       .logo-container {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        gap: 15px;
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 0;
+        justify-content: center;
       }
       
       .mobile-menu-btn {
@@ -495,7 +509,7 @@
       
       .nav-menu {
         position: fixed;
-        top: 150px; /* Ajustado para header maior */
+        top: 150px;
         left: -100%;
         width: 100%;
         height: calc(100vh - 150px);
@@ -506,6 +520,7 @@
         padding-top: 30px;
         gap: 25px;
         transition: var(--transition);
+        right: auto;
       }
       
       .nav-menu.active {
@@ -513,7 +528,7 @@
       }
       
       .main-content {
-        margin-top: 170px; /* Ajustado para header maior em mobile */
+        margin-top: 170px;
         padding: 0 20px;
       }
       
@@ -535,31 +550,39 @@
       
       .carousel-container {
         height: 300px;
-        margin: 20px auto 40px; /* Espaçamento ajustado para mobile */
+        margin: 20px auto 40px;
       }
       
       .logo {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         border-radius: 15px;
       }
       
-      .company-title h1 {
-        font-size: 2rem; /* Ajustado para mobile */
-      }
-      
-      .company-title p {
-        font-size: 1.1rem; /* Ajustado para mobile */
-      }
-    }
-    
-    @media (max-width: 576px) {
       .company-title h1 {
         font-size: 1.8rem;
       }
       
       .company-title p {
         font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .main-header {
+        padding: 4px 15px;
+      }
+      
+      .logo-container {
+        gap: 10px;
+      }
+      
+      .company-title h1 {
+        font-size: 1.5rem;
+      }
+      
+      .company-title p {
+        font-size: 0.9rem;
       }
       
       .hero h1 {
@@ -585,14 +608,14 @@
       }
       
       .logo {
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: 70px;
         border-radius: 12px;
       }
       
       .footer-logo {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
         border-radius: 15px;
       }
       
@@ -600,11 +623,15 @@
         grid-template-columns: 1fr;
         gap: 25px;
       }
+      
+      .nav-menu {
+        gap: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO COM LOGO AUMENTADO E FONTE IMPACT -->
+  <!-- CABEÇALHO COM TEXTO CENTRALIZADO -->
   <header class="main-header">
     <div class="logo-container">
       <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
@@ -629,7 +656,7 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="main-content">
     
-    <!-- CARROSSEL COM MAIS ESPAÇO APÓS O HEADER -->
+    <!-- CARROSSEL -->
     <div class="carousel-container">
       <div class="carousel-slide active">
         <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Painel HMI Weintek">
@@ -659,7 +686,7 @@
       <a href="#contact" class="cta-button">Solicitar Orçamento</a>
     </section>
 
-    <!-- SEÇÃO SERVIÇOS (CARD SUPORTE REMOVIDO) -->
+    <!-- SEÇÃO SERVIÇOS -->
     <section id="services">
       <div class="section-title">
         <h2>Nossos Serviços</h2>
@@ -705,8 +732,6 @@
           <h3>Integração de Sensores e Atuação</h3>
           <p>Instalação e parametrização de sensores, inversores e servomotores para controle preciso de processos.</p>
         </div>
-        
-        <!-- CARD SUPORTE TÉCNICO REMOVIDO -->
       </div>
     </section>
 
@@ -796,7 +821,6 @@
   </footer>
 
   <script>
-    // Funções para navegação responsiva
     document.addEventListener('DOMContentLoaded', function() {
       // Menu mobile
       const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -833,11 +857,9 @@
       const dots = document.querySelectorAll('.carousel-dot');
       
       function showSlide(index) {
-        // Remover classe active de todos os slides e dots
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
         
-        // Adicionar classe active no slide e dot atual
         slides[index].classList.add('active');
         dots[index].classList.add('active');
       }
@@ -870,7 +892,7 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 140, /* Ajustado para header maior */
+              top: targetElement.offsetTop - 140,
               behavior: 'smooth'
             });
           }
@@ -880,4 +902,3 @@
   </script>
 </body>
 </html>
-
