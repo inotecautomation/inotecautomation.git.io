@@ -44,25 +44,25 @@
       overflow-x: hidden;
     }
     
-    /* ===== CABEÇALHO PROFISSIONAL ===== */
+    /* ===== CABEÇALHO COM LOGO MAIOR ===== */
     .main-header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.9);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--glass-border);
       z-index: 1000;
-      padding: 15px 5%;
+      padding: 10px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     
     .header-scrolled {
-      padding: 10px 5%;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      padding: 8px 5%;
     }
     
     .logo-container {
@@ -72,16 +72,18 @@
     }
     
     .logo {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
+      width: 140px; /* Dobro do tamanho original */
+      height: 140px; /* Mantém proporção quadrada */
+      border-radius: 20px; /* Bordas arredondadas */
       object-fit: cover;
-      border: 2px solid var(--accent);
+      border: 3px solid var(--accent);
       transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     
     .logo:hover {
-      transform: rotate(5deg);
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(45, 205, 223, 0.3);
     }
     
     .company-title {
@@ -90,22 +92,24 @@
     }
     
     .company-title h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.8rem;
+      font-weight: 800;
       color: var(--text-light);
+      letter-spacing: 0.5px;
     }
     
     .company-title p {
-      font-size: 0.85rem;
-      color: var(--text-gray);
-      margin-top: 3px;
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-top: 5px;
+      font-weight: 600;
     }
     
     /* ===== MENU DE NAVEGAÇÃO ===== */
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 30px;
+      gap: 25px;
     }
     
     .nav-menu a {
@@ -146,25 +150,25 @@
       cursor: pointer;
     }
     
-    /* ===== CONTEÚDO PRINCIPAL ===== */
+    /* ===== CONTEÚDO PRINCIPAL COMPACTO ===== */
     .main-content {
-      margin-top: 120px;
+      margin-top: 100px; /* Reduzido de 120px */
       padding: 0 5%;
     }
     
     section {
-      margin-bottom: 80px;
-      scroll-margin-top: 100px;
+      margin-bottom: 60px; /* Reduzido de 80px */
+      scroll-margin-top: 90px; /* Ajustado para header mais compacto */
     }
     
     .section-title {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px; /* Reduzido de 50px */
       position: relative;
     }
     
     .section-title h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem; /* Reduzido de 2.5rem */
       display: inline-block;
       padding-bottom: 10px;
     }
@@ -181,18 +185,19 @@
       border-radius: 2px;
     }
     
-    /* ===== HERO SECTION ===== */
+    /* ===== HERO SECTION COMPACTA ===== */
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 60px 0;
+      padding: 40px 0 30px; /* Reduzido de 60px 0 */
+      margin-bottom: 30px; /* Espaço reduzido antes do carrossel */
     }
     
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 2.5rem; /* Reduzido de 3rem */
+      margin-bottom: 15px; /* Reduzido de 20px */
       background: linear-gradient(to right, #fff, var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
@@ -200,19 +205,19 @@
     }
     
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.1rem; /* Reduzido de 1.2rem */
       max-width: 800px;
-      margin-bottom: 40px;
+      margin-bottom: 25px; /* Reduzido de 40px */
       color: var(--text-gray);
     }
     
-    /* ===== CARROSSEL ===== */
+    /* ===== CARROSSEL COM ESPAÇO REDUZIDO ===== */
     .carousel-container {
       position: relative;
       width: 100%;
       max-width: 900px;
-      height: 500px;
-      margin: 0 auto 50px;
+      height: 450px; /* Reduzido de 500px */
+      margin: 0 auto 40px; /* Reduzido de 50px */
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -238,7 +243,7 @@
     
     .carousel-controls {
       position: absolute;
-      bottom: 20px;
+      bottom: 15px; /* Reduzido de 20px */
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -262,111 +267,115 @@
     /* ===== SERVIÇOS ===== */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajustado de 320px */
+      gap: 25px; /* Reduzido de 30px */
     }
     
     .service-card {
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
       border-radius: var(--radius);
-      padding: 30px;
+      padding: 25px; /* Reduzido de 30px */
       border: 1px solid var(--glass-border);
       transition: var(--transition);
       height: 100%;
     }
     
     .service-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px); /* Reduzido de 10px */
       border-color: var(--accent);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Reduzido de 15px 30px */
     }
     
     .service-icon {
-      font-size: 2.5rem;
+      font-size: 2.2rem; /* Reduzido de 2.5rem */
       color: var(--accent);
-      margin-bottom: 20px;
+      margin-bottom: 15px; /* Reduzido de 20px */
     }
     
     .service-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+      font-size: 1.4rem; /* Reduzido de 1.5rem */
+      margin-bottom: 12px; /* Reduzido de 15px */
     }
     
     .service-card p {
       color: var(--text-gray);
+      font-size: 0.95rem;
     }
     
     /* ===== CONTATO ===== */
     .contact-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
+      gap: 30px; /* Reduzido de 40px */
     }
     
     .contact-info {
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
       border-radius: var(--radius);
-      padding: 30px;
+      padding: 25px; /* Reduzido de 30px */
       border: 1px solid var(--glass-border);
     }
     
     .contact-info h3 {
       margin-bottom: 20px;
       color: var(--accent);
+      font-size: 1.5rem;
     }
     
     .contact-item {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px; /* Reduzido de 20px */
       gap: 15px;
     }
     
     .contact-icon {
-      width: 50px;
-      height: 50px;
+      width: 45px; /* Reduzido de 50px */
+      height: 45px; /* Reduzido de 50px */
       background: rgba(45, 205, 223, 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.1rem; /* Reduzido de 1.2rem */
       color: var(--accent);
     }
     
     .contact-details h4 {
       margin-bottom: 5px;
+      font-size: 1.1rem;
     }
     
     .contact-details p {
       color: var(--text-gray);
+      font-size: 0.95rem;
     }
     
     .social-links {
       display: flex;
-      gap: 15px;
-      margin-top: 30px;
+      gap: 12px; /* Reduzido de 15px */
+      margin-top: 25px; /* Reduzido de 30px */
     }
     
     .social-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 45px;
-      height: 45px;
+      width: 42px; /* Reduzido de 45px */
+      height: 42px; /* Reduzido de 45px */
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       color: var(--text-light);
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.1rem; /* Reduzido de 1.2rem */
       transition: var(--transition);
     }
     
     .social-link:hover {
       background: var(--accent);
-      transform: translateY(-5px);
+      transform: translateY(-3px); /* Reduzido de 5px */
     }
     
     /* ===== BOTÕES ===== */
@@ -374,11 +383,11 @@
       display: inline-block;
       background: var(--primary);
       color: var(--text-light);
-      padding: 15px 30px;
+      padding: 14px 28px; /* Reduzido de 15px 30px */
       border-radius: var(--radius);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem; /* Reduzido de 1.1rem */
       transition: var(--transition);
       border: none;
       cursor: pointer;
@@ -387,15 +396,15 @@
     .cta-button:hover {
       background: var(--primary-light);
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 180, 216, 0.3);
+      box-shadow: 0 8px 18px rgba(0, 180, 216, 0.3); /* Reduzido de 10px 20px */
     }
     
     /* ===== RODAPÉ ===== */
     .main-footer {
       background: rgba(0, 0, 0, 0.8);
-      padding: 40px 5%;
+      padding: 30px 5%; /* Reduzido de 40px 5% */
       text-align: center;
-      margin-top: 80px;
+      margin-top: 60px; /* Reduzido de 80px */
     }
     
     .footer-content {
@@ -404,35 +413,51 @@
     }
     
     .footer-logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 20px;
+      width: 100px; /* Aumentado de 80px para manter proporção */
+      height: 100px; /* Aumentado de 80px para manter proporção */
+      border-radius: 20px; /* Bordas arredondadas */
+      margin-bottom: 15px; /* Reduzido de 20px */
       border: 2px solid var(--accent);
+    }
+    
+    .footer-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .footer-content p {
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
     }
     
     .copyright {
       color: var(--text-gray);
-      margin-top: 30px;
-      font-size: 0.9rem;
-      padding-top: 20px;
+      margin-top: 25px; /* Reduzido de 30px */
+      font-size: 0.85rem; /* Reduzido de 0.9rem */
+      padding-top: 15px; /* Reduzido de 20px */
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 1024px) {
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem; /* Ajustado de 2.5rem */
       }
       
       .carousel-container {
-        height: 400px;
+        height: 380px; /* Ajustado de 400px */
+      }
+      
+      .logo {
+        width: 120px; /* Ajustado para tablets */
+        height: 120px;
       }
     }
     
     @media (max-width: 768px) {
       .main-header {
-        padding: 15px 20px;
+        padding: 8px 20px; /* Mais compacto */
       }
       
       .mobile-menu-btn {
@@ -441,16 +466,16 @@
       
       .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 75px; /* Ajustado para header mais compacto */
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 75px);
         background: rgba(0, 0, 0, 0.95);
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding-top: 50px;
-        gap: 40px;
+        padding-top: 40px; /* Reduzido de 50px */
+        gap: 35px; /* Reduzido de 40px */
         transition: var(--transition);
       }
       
@@ -459,20 +484,38 @@
       }
       
       .main-content {
-        margin-top: 100px;
+        margin-top: 85px; /* Reduzido de 100px */
         padding: 0 20px;
       }
       
+      .hero {
+        padding: 30px 0 20px; /* Mais compacto */
+      }
+      
       .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem; /* Reduzido de 2.2rem */
+      }
+      
+      .hero p {
+        font-size: 1rem; /* Reduzido de 1.1rem */
       }
       
       .section-title h2 {
-        font-size: 2rem;
+        font-size: 1.8rem; /* Reduzido de 2rem */
       }
       
       .carousel-container {
-        height: 350px;
+        height: 320px; /* Reduzido de 350px */
+        margin-bottom: 35px; /* Reduzido de 40px */
+      }
+      
+      .logo {
+        width: 100px; /* Ajustado para mobile */
+        height: 100px;
+      }
+      
+      .company-title h1 {
+        font-size: 1.4rem; /* Ajustado para mobile */
       }
     }
     
@@ -482,33 +525,51 @@
       }
       
       .company-title p {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
       }
       
       .hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem; /* Reduzido de 1.8rem */
       }
       
       .hero p {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
       
       .section-title h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem; /* Reduzido de 1.8rem */
       }
       
       .services-grid {
         grid-template-columns: 1fr;
+        gap: 20px; /* Mais compacto */
       }
       
       .carousel-container {
-        height: 250px;
+        height: 220px; /* Reduzido de 250px */
+      }
+      
+      .logo {
+        width: 80px; /* Ajustado para telas pequenas */
+        height: 80px;
+        border-radius: 15px;
+      }
+      
+      .footer-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 15px;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO PROFISSIONAL -->
+  <!-- CABEÇALHO COM LOGO MAIOR -->
   <header class="main-header">
     <div class="logo-container">
       <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
@@ -526,14 +587,13 @@
       <li><a href="#home">Início</a></li>
       <li><a href="#about">Sobre</a></li>
       <li><a href="#services">Serviços</a></li>
-      <li><a href="#portfolio">Portfólio</a></li>
       <li><a href="#contact">Contato</a></li>
     </nav>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
+  <!-- CONTEÚDO PRINCIPAL COMPACTO -->
   <main class="main-content">
-    <!-- SEÇÃO HOME -->
+    <!-- SEÇÃO HOME COMPACTA -->
     <section id="home" class="hero">
       <h1>Soluções Inteligentes para Automação Industrial</h1>
       <p>Especialistas em retrofit de máquinas, projetos de automação com CLPs Delta, Siemens, Weg e IHMs Weintek, além de sistemas de monitoramento em tempo real.</p>
@@ -679,11 +739,11 @@
         <div class="contact-info">
           <h3>Solicite um Orçamento</h3>
           <p>Tem um projeto de automação ou precisa modernizar suas máquinas? Entre em contato para uma avaliação personalizada.</p>
-          <p style="margin-top: 20px; color: var(--accent); font-weight: 600;">
+          <p style="margin-top: 15px; color: var(--accent); font-weight: 600;">
             <i class="fas fa-clock"></i> Atendimento: Segunda a Sexta, 8h às 18h
           </p>
-          <div style="margin-top: 30px;">
-            <a href="https://wa.me/5511999999999" target="_blank" class="cta-button" style="display: inline-flex; align-items: center; gap: 10px;">
+          <div style="margin-top: 25px;">
+            <a href="https://wa.me/5511999999999" target="_blank" class="cta-button" style="display: inline-flex; align-items: center; gap: 8px;">
               <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
           </div>
@@ -730,7 +790,7 @@
       // Efeito de scroll no header
       window.addEventListener('scroll', function() {
         const header = document.querySelector('.main-header');
-        if (window.scrollY > 50) {
+        if (window.scrollY > 30) { // Reduzido de 50px
           header.classList.add('header-scrolled');
         } else {
           header.classList.remove('header-scrolled');
@@ -780,7 +840,7 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 80,
+              top: targetElement.offsetTop - 70, // Ajustado para header mais compacto
               behavior: 'smooth'
             });
           }
