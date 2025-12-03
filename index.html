@@ -44,7 +44,7 @@
       overflow-x: hidden;
     }
     
-    /* ===== CABEÇALHO COM LOGO MAIOR ===== */
+    /* ===== CABEÇALHO COM LOGO REDUZIDO ===== */
     .main-header {
       position: fixed;
       top: 0;
@@ -53,7 +53,7 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--glass-border);
       z-index: 1000;
-      padding: 10px 5%;
+      padding: 5px 5%; /* REDUZIDO EM 50% (era 10px 5%) */
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -62,21 +62,21 @@
     }
     
     .header-scrolled {
-      padding: 8px 5%;
+      padding: 4px 5%; /* REDUZIDO proporcionalmente */
     }
     
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 10px; /* Reduzido para acompanhar o menor logo */
     }
     
     .logo {
-      width: 140px; /* Dobro do tamanho original */
-      height: 140px; /* Mantém proporção quadrada */
-      border-radius: 20px; /* Bordas arredondadas */
+      width: 70px; /* REDUZIDO EM 50% (era 140px) */
+      height: 70px; /* REDUZIDO EM 50% (era 140px) */
+      border-radius: 15px; /* Bordas arredondadas ajustadas */
       object-fit: cover;
-      border: 3px solid var(--accent);
+      border: 2px solid var(--accent); /* Borda mais fina */
       transition: var(--transition);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
@@ -92,16 +92,16 @@
     }
     
     .company-title h1 {
-      font-size: 1.8rem;
+      font-size: 1.4rem; /* Reduzido para equilibrar */
       font-weight: 800;
       color: var(--text-light);
       letter-spacing: 0.5px;
     }
     
     .company-title p {
-      font-size: 0.9rem;
+      font-size: 0.8rem; /* Reduzido para equilibrar */
       color: var(--accent);
-      margin-top: 5px;
+      margin-top: 3px; /* Reduzido */
       font-weight: 600;
     }
     
@@ -109,15 +109,15 @@
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 25px;
+      gap: 20px; /* Reduzido */
     }
     
     .nav-menu a {
       color: var(--text-light);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem;
-      padding: 8px 0;
+      font-size: 0.9rem; /* Reduzido */
+      padding: 6px 0; /* Reduzido */
       position: relative;
       transition: var(--transition);
     }
@@ -146,29 +146,29 @@
       background: none;
       border: none;
       color: var(--text-light);
-      font-size: 1.5rem;
+      font-size: 1.3rem; /* Reduzido */
       cursor: pointer;
     }
     
-    /* ===== CONTEÚDO PRINCIPAL COMPACTO ===== */
+    /* ===== CONTEÚDO PRINCIPAL COM CARROSSEL NO TOPO ===== */
     .main-content {
-      margin-top: 100px; /* Reduzido de 120px */
+      margin-top: 70px; /* REDUZIDO (era 100px) para header menor */
       padding: 0 5%;
     }
     
     section {
-      margin-bottom: 60px; /* Reduzido de 80px */
-      scroll-margin-top: 90px; /* Ajustado para header mais compacto */
+      margin-bottom: 60px;
+      scroll-margin-top: 70px; /* Ajustado para header menor */
     }
     
     .section-title {
       text-align: center;
-      margin-bottom: 40px; /* Reduzido de 50px */
+      margin-bottom: 40px;
       position: relative;
     }
     
     .section-title h2 {
-      font-size: 2.2rem; /* Reduzido de 2.5rem */
+      font-size: 2.2rem;
       display: inline-block;
       padding-bottom: 10px;
     }
@@ -185,39 +185,13 @@
       border-radius: 2px;
     }
     
-    /* ===== HERO SECTION COMPACTA ===== */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 70px 0 30px; /* Reduzido de 60px 0  DISTANCIA DA BARRA PARA O TEXTO*/
-      margin-bottom: 30px; /* Espaço reduzido antes do carrossel */
-    }
-    
-    .hero h1 {
-      font-size: 2.5rem; /* Reduzido de 3rem */
-      margin-bottom: 15px; /* Reduzido de 20px */
-      background: linear-gradient(to right, #fff, var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    
-    .hero p {
-      font-size: 1.1rem; /* Reduzido de 1.2rem */
-      max-width: 800px;
-      margin-bottom: 25px; /* Reduzido de 40px */
-      color: var(--text-gray);
-    }
-    
-    /* ===== CARROSSEL COM ESPAÇO REDUZIDO ===== */
+    /* ===== CARROSSEL NO TOPO (APÓS HEADER) ===== */
     .carousel-container {
       position: relative;
       width: 100%;
       max-width: 900px;
-      height: 450px; /* Reduzido de 500px */
-      margin: 0 auto 40px; /* Reduzido de 50px */
+      height: 450px;
+      margin: 0 auto 30px; /* Espaço reduzido abaixo do carrossel */
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -243,7 +217,7 @@
     
     .carousel-controls {
       position: absolute;
-      bottom: 15px; /* Reduzido de 20px */
+      bottom: 15px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -264,38 +238,64 @@
       transform: scale(1.2);
     }
     
+    /* ===== HERO SECTION AGORA ABAIXO DO CARROSSEL ===== */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 30px 0; /* Espaço reduzido já que está após carrossel */
+      margin-bottom: 30px;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin-bottom: 25px;
+      color: var(--text-gray);
+    }
+    
     /* ===== SERVIÇOS ===== */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajustado de 320px */
-      gap: 25px; /* Reduzido de 30px */
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
     }
     
     .service-card {
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
       border-radius: var(--radius);
-      padding: 25px; /* Reduzido de 30px */
+      padding: 25px;
       border: 1px solid var(--glass-border);
       transition: var(--transition);
       height: 100%;
     }
     
     .service-card:hover {
-      transform: translateY(-8px); /* Reduzido de 10px */
+      transform: translateY(-8px);
       border-color: var(--accent);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Reduzido de 15px 30px */
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
     }
     
     .service-icon {
-      font-size: 2.2rem; /* Reduzido de 2.5rem */
+      font-size: 2.2rem;
       color: var(--accent);
-      margin-bottom: 15px; /* Reduzido de 20px */
+      margin-bottom: 15px;
     }
     
     .service-card h3 {
-      font-size: 1.4rem; /* Reduzido de 1.5rem */
-      margin-bottom: 12px; /* Reduzido de 15px */
+      font-size: 1.4rem;
+      margin-bottom: 12px;
     }
     
     .service-card p {
@@ -307,14 +307,14 @@
     .contact-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px; /* Reduzido de 40px */
+      gap: 30px;
     }
     
     .contact-info {
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
       border-radius: var(--radius);
-      padding: 25px; /* Reduzido de 30px */
+      padding: 25px;
       border: 1px solid var(--glass-border);
     }
     
@@ -327,19 +327,19 @@
     .contact-item {
       display: flex;
       align-items: center;
-      margin-bottom: 18px; /* Reduzido de 20px */
+      margin-bottom: 18px;
       gap: 15px;
     }
     
     .contact-icon {
-      width: 45px; /* Reduzido de 50px */
-      height: 45px; /* Reduzido de 50px */
+      width: 45px;
+      height: 45px;
       background: rgba(45, 205, 223, 0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem; /* Reduzido de 1.2rem */
+      font-size: 1.1rem;
       color: var(--accent);
     }
     
@@ -355,27 +355,27 @@
     
     .social-links {
       display: flex;
-      gap: 12px; /* Reduzido de 15px */
-      margin-top: 25px; /* Reduzido de 30px */
+      gap: 12px;
+      margin-top: 25px;
     }
     
     .social-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 42px; /* Reduzido de 45px */
-      height: 42px; /* Reduzido de 45px */
+      width: 42px;
+      height: 42px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       color: var(--text-light);
       text-decoration: none;
-      font-size: 1.1rem; /* Reduzido de 1.2rem */
+      font-size: 1.1rem;
       transition: var(--transition);
     }
     
     .social-link:hover {
       background: var(--accent);
-      transform: translateY(-3px); /* Reduzido de 5px */
+      transform: translateY(-3px);
     }
     
     /* ===== BOTÕES ===== */
@@ -383,11 +383,11 @@
       display: inline-block;
       background: var(--primary);
       color: var(--text-light);
-      padding: 14px 28px; /* Reduzido de 15px 30px */
+      padding: 14px 28px;
       border-radius: var(--radius);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1rem; /* Reduzido de 1.1rem */
+      font-size: 1rem;
       transition: var(--transition);
       border: none;
       cursor: pointer;
@@ -396,15 +396,15 @@
     .cta-button:hover {
       background: var(--primary-light);
       transform: translateY(-3px);
-      box-shadow: 0 8px 18px rgba(0, 180, 216, 0.3); /* Reduzido de 10px 20px */
+      box-shadow: 0 8px 18px rgba(0, 180, 216, 0.3);
     }
     
     /* ===== RODAPÉ ===== */
     .main-footer {
       background: rgba(0, 0, 0, 0.8);
-      padding: 30px 5%; /* Reduzido de 40px 5% */
+      padding: 30px 5%;
       text-align: center;
-      margin-top: 60px; /* Reduzido de 80px */
+      margin-top: 60px;
     }
     
     .footer-content {
@@ -413,15 +413,15 @@
     }
     
     .footer-logo {
-      width: 100px; /* Aumentado de 80px para manter proporção */
-      height: 100px; /* Aumentado de 80px para manter proporção */
-      border-radius: 20px; /* Bordas arredondadas */
-      margin-bottom: 15px; /* Reduzido de 20px */
-      border: 2px solid var(--accent);
+      width: 70px; /* REDUZIDO EM 50% (era 100px) */
+      height: 70px; /* REDUZIDO EM 50% (era 100px) */
+      border-radius: 15px; /* Ajustado proporcionalmente */
+      margin-bottom: 15px;
+      border: 2px solid var(--accent); /* Borda mais fina */
     }
     
     .footer-content h3 {
-      font-size: 1.5rem;
+      font-size: 1.3rem; /* Reduzido para equilibrar */
       margin-bottom: 10px;
     }
     
@@ -429,35 +429,36 @@
       color: var(--text-gray);
       max-width: 600px;
       margin: 0 auto;
+      font-size: 0.9rem; /* Reduzido levemente */
     }
     
     .copyright {
       color: var(--text-gray);
-      margin-top: 25px; /* Reduzido de 30px */
-      font-size: 0.85rem; /* Reduzido de 0.9rem */
-      padding-top: 15px; /* Reduzido de 20px */
+      margin-top: 25px;
+      font-size: 0.85rem;
+      padding-top: 15px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 1024px) {
       .hero h1 {
-        font-size: 2.2rem; /* Ajustado de 2.5rem */
+        font-size: 2.2rem;
       }
       
       .carousel-container {
-        height: 380px; /* Ajustado de 400px */
+        height: 380px;
       }
       
       .logo {
-        width: 120px; /* Ajustado para tablets */
-        height: 120px;
+        width: 60px; /* Ajustado proporcionalmente */
+        height: 60px;
       }
     }
     
     @media (max-width: 768px) {
       .main-header {
-        padding: 8px 20px; /* Mais compacto */
+        padding: 4px 20px; /* Mais compacto */
       }
       
       .mobile-menu-btn {
@@ -466,16 +467,16 @@
       
       .nav-menu {
         position: fixed;
-        top: 75px; /* Ajustado para header mais compacto */
+        top: 60px; /* Ajustado para header menor */
         left: -100%;
         width: 100%;
-        height: calc(100vh - 75px);
+        height: calc(100vh - 60px);
         background: rgba(0, 0, 0, 0.95);
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding-top: 40px; /* Reduzido de 50px */
-        gap: 35px; /* Reduzido de 40px */
+        padding-top: 30px;
+        gap: 25px;
         transition: var(--transition);
       }
       
@@ -484,52 +485,53 @@
       }
       
       .main-content {
-        margin-top: 85px; /* Reduzido de 100px */
+        margin-top: 60px; /* Ajustado para header menor */
         padding: 0 20px;
       }
       
       .hero {
-        padding: 30px 0 20px; /* Mais compacto */
+        padding: 20px 0;
       }
       
       .hero h1 {
-        font-size: 2rem; /* Reduzido de 2.2rem */
+        font-size: 2rem;
       }
       
       .hero p {
-        font-size: 1rem; /* Reduzido de 1.1rem */
+        font-size: 1rem;
       }
       
       .section-title h2 {
-        font-size: 1.8rem; /* Reduzido de 2rem */
+        font-size: 1.8rem;
       }
       
       .carousel-container {
-        height: 320px; /* Reduzido de 350px */
-        margin-bottom: 35px; /* Reduzido de 40px */
+        height: 300px; /* Reduzido para mobile */
+        margin-bottom: 25px;
       }
       
       .logo {
-        width: 100px; /* Ajustado para mobile */
-        height: 100px;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
       }
       
       .company-title h1 {
-        font-size: 1.4rem; /* Ajustado para mobile */
+        font-size: 1.2rem;
       }
     }
     
     @media (max-width: 576px) {
       .company-title h1 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
       
       .company-title p {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
       }
       
       .hero h1 {
-        font-size: 1.7rem; /* Reduzido de 1.8rem */
+        font-size: 1.7rem;
       }
       
       .hero p {
@@ -537,28 +539,28 @@
       }
       
       .section-title h2 {
-        font-size: 1.6rem; /* Reduzido de 1.8rem */
+        font-size: 1.6rem;
       }
       
       .services-grid {
         grid-template-columns: 1fr;
-        gap: 20px; /* Mais compacto */
+        gap: 20px;
       }
       
       .carousel-container {
-        height: 220px; /* Reduzido de 250px */
+        height: 220px;
       }
       
       .logo {
-        width: 80px; /* Ajustado para telas pequenas */
-        height: 80px;
-        border-radius: 15px;
+        width: 45px;
+        height: 45px;
+        border-radius: 8px;
       }
       
       .footer-logo {
-        width: 80px;
-        height: 80px;
-        border-radius: 15px;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
       }
       
       .contact-container {
@@ -569,7 +571,7 @@
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO COM LOGO MAIOR -->
+  <!-- CABEÇALHO COM LOGO REDUZIDO -->
   <header class="main-header">
     <div class="logo-container">
       <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
@@ -591,16 +593,10 @@
     </nav>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL COMPACTO -->
+  <!-- CONTEÚDO PRINCIPAL -->
   <main class="main-content">
-    <!-- SEÇÃO HOME COMPACTA -->
-    <section id="home" class="hero">
-      <h1>Soluções Inteligentes para Automação Industrial</h1>
-      <p>Especialistas em retrofit de máquinas, projetos de automação com CLPs Delta, Siemens, Weg e IHMs Weintek, além de sistemas de monitoramento em tempo real.</p>
-      <a href="#contact" class="cta-button">Solicitar Orçamento</a>
-    </section>
-
-    <!-- CARROSSEL -->
+    
+    <!-- CARROSSEL AGORA VEM PRIMEIRO (APÓS O HEADER) -->
     <div class="carousel-container">
       <div class="carousel-slide active">
         <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Painel HMI Weintek">
@@ -622,6 +618,13 @@
         <div class="carousel-dot" data-slide="3"></div>
       </div>
     </div>
+
+    <!-- SEÇÃO HOME AGORA ABAIXO DO CARROSSEL -->
+    <section id="home" class="hero">
+      <h1>Soluções Inteligentes para Automação Industrial</h1>
+      <p>Especialistas em retrofit de máquinas, projetos de automação com CLPs Delta, Siemens, Weg e IHMs Weintek, além de sistemas de monitoramento em tempo real.</p>
+      <a href="#contact" class="cta-button">Solicitar Orçamento</a>
+    </section>
 
     <!-- SEÇÃO SERVIÇOS -->
     <section id="services">
@@ -790,7 +793,7 @@
       // Efeito de scroll no header
       window.addEventListener('scroll', function() {
         const header = document.querySelector('.main-header');
-        if (window.scrollY > 30) { // Reduzido de 50px
+        if (window.scrollY > 30) {
           header.classList.add('header-scrolled');
         } else {
           header.classList.remove('header-scrolled');
@@ -840,7 +843,7 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 70, // Ajustado para header mais compacto
+              top: targetElement.offsetTop - 60, /* Ajustado para header menor */
               behavior: 'smooth'
             });
           }
@@ -850,5 +853,3 @@
   </script>
 </body>
 </html>
-
-
