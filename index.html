@@ -6,6 +6,7 @@
   <title>INOTEC | Automação Industrial e Retrofit de Máquinas</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Impact&display=swap" rel="stylesheet">
   <style>
     /* ===== RESET & VARIÁVEIS ===== */
     :root {
@@ -44,7 +45,7 @@
       overflow-x: hidden;
     }
     
-    /* ===== CABEÇALHO COM LOGO REDUZIDO ===== */
+    /* ===== CABEÇALHO COM LOGO AUMENTADO ===== */
     .main-header {
       position: fixed;
       top: 0;
@@ -53,7 +54,7 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--glass-border);
       z-index: 1000;
-      padding: 5px 5%; /* REDUZIDO EM 50% (era 10px 5%) */
+      padding: 5px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -62,62 +63,68 @@
     }
     
     .header-scrolled {
-      padding: 4px 5%; /* REDUZIDO proporcionalmente */
+      padding: 4px 5%;
     }
     
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 10px; /* Reduzido para acompanhar o menor logo */
+      gap: 15px;
     }
     
     .logo {
-      width: 70px; /* REDUZIDO EM 50% (era 140px) */
-      height: 70px; /* REDUZIDO EM 50% (era 140px) */
-      border-radius: 15px; /* Bordas arredondadas ajustadas */
+      width: 140px; /* AUMENTADO EM 100% (era 70px) */
+      height: 140px; /* AUMENTADO EM 100% (era 70px) */
+      border-radius: 20px;
       object-fit: cover;
-      border: 2px solid var(--accent); /* Borda mais fina */
+      border: 3px solid #000000; /* ALTERADO PARA PRETO (era var(--accent)) */
       transition: var(--transition);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     
     .logo:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(45, 205, 223, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     }
     
     .company-title {
       display: flex;
       flex-direction: column;
+      text-align: center;
+      width: 100%;
     }
     
     .company-title h1 {
-      font-size: 1.4rem; /* Reduzido para equilibrar */
+      font-family: 'Impact', sans-serif; /* FONTE IMPACT */
+      font-size: 2.8rem; /* AUMENTADO EM 100% (era 1.4rem) */
       font-weight: 800;
       color: var(--text-light);
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
     
     .company-title p {
-      font-size: 0.8rem; /* Reduzido para equilibrar */
+      font-family: 'Impact', sans-serif; /* FONTE IMPACT */
+      font-size: 1.6rem; /* AUMENTADO EM 100% (era 0.8rem) */
       color: var(--accent);
-      margin-top: 3px; /* Reduzido */
+      margin-top: 5px;
       font-weight: 600;
+      text-transform: uppercase;
     }
     
     /* ===== MENU DE NAVEGAÇÃO ===== */
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 20px; /* Reduzido */
+      gap: 25px;
     }
     
     .nav-menu a {
       color: var(--text-light);
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem; /* Reduzido */
-      padding: 6px 0; /* Reduzido */
+      font-size: 1rem;
+      padding: 8px 0;
       position: relative;
       transition: var(--transition);
     }
@@ -146,19 +153,19 @@
       background: none;
       border: none;
       color: var(--text-light);
-      font-size: 1.3rem; /* Reduzido */
+      font-size: 1.5rem;
       cursor: pointer;
     }
     
-    /* ===== CONTEÚDO PRINCIPAL COM CARROSSEL NO TOPO ===== */
+    /* ===== CONTEÚDO PRINCIPAL ===== */
     .main-content {
-      margin-top: 70px; /* REDUZIDO (era 100px) para header menor */
+      margin-top: 150px; /* AUMENTADO (era 70px) para dar mais espaço após header */
       padding: 0 5%;
     }
     
     section {
       margin-bottom: 60px;
-      scroll-margin-top: 70px; /* Ajustado para header menor */
+      scroll-margin-top: 150px; /* Ajustado para header maior */
     }
     
     .section-title {
@@ -185,13 +192,13 @@
       border-radius: 2px;
     }
     
-    /* ===== CARROSSEL NO TOPO (APÓS HEADER) ===== */
+    /* ===== CARROSSEL COM MAIS ESPAÇO ===== */
     .carousel-container {
       position: relative;
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 0 auto 30px; /* Espaço reduzido abaixo do carrossel */
+      margin: 30px auto 50px; /* AUMENTADO espaçamento superior para 30px */
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -238,14 +245,14 @@
       transform: scale(1.2);
     }
     
-    /* ===== HERO SECTION AGORA ABAIXO DO CARROSSEL ===== */
+    /* ===== HERO SECTION ===== */
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 30px 0; /* Espaço reduzido já que está após carrossel */
-      margin-bottom: 30px;
+      padding: 20px 0;
+      margin-bottom: 40px;
     }
     
     .hero h1 {
@@ -413,15 +420,16 @@
     }
     
     .footer-logo {
-      width: 70px; /* REDUZIDO EM 50% (era 100px) */
-      height: 70px; /* REDUZIDO EM 50% (era 100px) */
-      border-radius: 15px; /* Ajustado proporcionalmente */
+      width: 120px; /* Aumentado proporcionalmente */
+      height: 120px; /* Aumentado proporcionalmente */
+      border-radius: 20px;
       margin-bottom: 15px;
-      border: 2px solid var(--accent); /* Borda mais fina */
+      border: 3px solid #000000; /* Alterado para preto */
     }
     
     .footer-content h3 {
-      font-size: 1.3rem; /* Reduzido para equilibrar */
+      font-family: 'Impact', sans-serif; /* FONTE IMPACT */
+      font-size: 1.8rem; /* Aumentado */
       margin-bottom: 10px;
     }
     
@@ -429,7 +437,7 @@
       color: var(--text-gray);
       max-width: 600px;
       margin: 0 auto;
-      font-size: 0.9rem; /* Reduzido levemente */
+      font-size: 0.9rem;
     }
     
     .copyright {
@@ -451,26 +459,46 @@
       }
       
       .logo {
-        width: 60px; /* Ajustado proporcionalmente */
-        height: 60px;
+        width: 100px; /* Ajustado proporcionalmente */
+        height: 100px;
+      }
+      
+      .company-title h1 {
+        font-size: 2rem; /* Ajustado para tablet */
+      }
+      
+      .company-title p {
+        font-size: 1.1rem; /* Ajustado para tablet */
       }
     }
     
     @media (max-width: 768px) {
       .main-header {
-        padding: 4px 20px; /* Mais compacto */
+        padding: 4px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .logo-container {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 10px;
       }
       
       .mobile-menu-btn {
         display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
       }
       
       .nav-menu {
         position: fixed;
-        top: 60px; /* Ajustado para header menor */
+        top: 150px; /* Ajustado para header maior */
         left: -100%;
         width: 100%;
-        height: calc(100vh - 60px);
+        height: calc(100vh - 150px);
         background: rgba(0, 0, 0, 0.95);
         flex-direction: column;
         align-items: center;
@@ -485,7 +513,7 @@
       }
       
       .main-content {
-        margin-top: 60px; /* Ajustado para header menor */
+        margin-top: 170px; /* Ajustado para header maior em mobile */
         padding: 0 20px;
       }
       
@@ -506,28 +534,32 @@
       }
       
       .carousel-container {
-        height: 300px; /* Reduzido para mobile */
-        margin-bottom: 25px;
+        height: 300px;
+        margin: 20px auto 40px; /* Espaçamento ajustado para mobile */
       }
       
       .logo {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+        border-radius: 15px;
       }
       
       .company-title h1 {
-        font-size: 1.2rem;
+        font-size: 2rem; /* Ajustado para mobile */
+      }
+      
+      .company-title p {
+        font-size: 1.1rem; /* Ajustado para mobile */
       }
     }
     
     @media (max-width: 576px) {
       .company-title h1 {
-        font-size: 1.1rem;
+        font-size: 1.8rem;
       }
       
       .company-title p {
-        font-size: 0.7rem;
+        font-size: 1rem;
       }
       
       .hero h1 {
@@ -549,18 +581,19 @@
       
       .carousel-container {
         height: 220px;
+        margin: 15px auto 30px;
       }
       
       .logo {
-        width: 45px;
-        height: 45px;
-        border-radius: 8px;
+        width: 90px;
+        height: 90px;
+        border-radius: 12px;
       }
       
       .footer-logo {
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
+        width: 90px;
+        height: 90px;
+        border-radius: 15px;
       }
       
       .contact-container {
@@ -571,7 +604,7 @@
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO COM LOGO REDUZIDO -->
+  <!-- CABEÇALHO COM LOGO AUMENTADO E FONTE IMPACT -->
   <header class="main-header">
     <div class="logo-container">
       <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
@@ -596,7 +629,7 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="main-content">
     
-    <!-- CARROSSEL AGORA VEM PRIMEIRO (APÓS O HEADER) -->
+    <!-- CARROSSEL COM MAIS ESPAÇO APÓS O HEADER -->
     <div class="carousel-container">
       <div class="carousel-slide active">
         <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Painel HMI Weintek">
@@ -619,14 +652,14 @@
       </div>
     </div>
 
-    <!-- SEÇÃO HOME AGORA ABAIXO DO CARROSSEL -->
+    <!-- SEÇÃO HOME -->
     <section id="home" class="hero">
       <h1>Soluções Inteligentes para Automação Industrial</h1>
       <p>Especialistas em retrofit de máquinas, projetos de automação com CLPs Delta, Siemens, Weg e IHMs Weintek, além de sistemas de monitoramento em tempo real.</p>
       <a href="#contact" class="cta-button">Solicitar Orçamento</a>
     </section>
 
-    <!-- SEÇÃO SERVIÇOS -->
+    <!-- SEÇÃO SERVIÇOS (CARD SUPORTE REMOVIDO) -->
     <section id="services">
       <div class="section-title">
         <h2>Nossos Serviços</h2>
@@ -673,13 +706,7 @@
           <p>Instalação e parametrização de sensores, inversores e servomotores para controle preciso de processos.</p>
         </div>
         
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-headset"></i>
-          </div>
-          <h3>Suporte Técnico Especializado</h3>
-          <p>Assistência técnica remota e presencial para manutenção corretiva e preventiva de sistemas automatizados.</p>
-        </div>
+        <!-- CARD SUPORTE TÉCNICO REMOVIDO -->
       </div>
     </section>
 
@@ -843,7 +870,7 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 60, /* Ajustado para header menor */
+              top: targetElement.offsetTop - 140, /* Ajustado para header maior */
               behavior: 'smooth'
             });
           }
