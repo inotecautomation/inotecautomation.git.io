@@ -11,14 +11,6 @@
   <style>
     /* ===== RESET & VARIÁVEIS ===== */
     :root {
-
-.carousel-controls {
-  display: none !important;
-}
-
-
-
-      
       --primary: #0077b6;
       --primary-dark: #005a8d;
       --primary-light: #00b4d8;
@@ -54,7 +46,7 @@
       overflow-x: hidden;
     }
     
-    /* ===== CABEÇALHO COM LOGO AUMENTADO E TEXTO CENTRALIZADO ===== */
+    /* ===== CABEÇALHO COM LOGO À ESQUERDA ===== */
     .main-header {
       position: fixed;
       top: 0;
@@ -66,7 +58,7 @@
       padding: 5px 5%;
       display: flex;
       align-items: center;
-      justify-content: center; /* CENTRALIZADO HORIZONTALMENTE */
+      justify-content: space-between; /* Logo à esquerda, menu à direita */
       transition: var(--transition);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
@@ -78,9 +70,9 @@
     .logo-container {
       display: flex;
       align-items: center;
-      justify-content: center; /* CENTRALIZADO */
-      gap: 30px; /* MAIS ESPAÇO ENTRE LOGO E TEXTO */
-      width: 100%;
+      gap: 20px; /* Espaço entre logo e texto */
+      justify-content: flex-start; /* Alinhamento à esquerda */
+      margin-left: 3px; /* MARGEM DE 3px DA BORDA ESQUERDA */
     }
     
     .logo {
@@ -101,9 +93,8 @@
     .company-title {
       display: flex;
       flex-direction: column;
-      align-items: center; /* CENTRALIZADO */
-      justify-content: center;
-      text-align: center;
+      align-items: flex-start; /* Alinhado à esquerda */
+      text-align: left; /* Texto à esquerda */
     }
     
     .company-title h1 {
@@ -133,8 +124,7 @@
       display: flex;
       list-style: none;
       gap: 25px;
-      position: absolute;
-      right: 5%; /* POSICIONADO À DIREITA */
+      margin-right: 3px; /* MARGEM DE 3px DA BORDA DIREITA */
     }
     
     .nav-menu a {
@@ -181,11 +171,16 @@
     .main-content {
       margin-top: 200px;
       padding: 0 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centraliza todo o conteúdo */
     }
     
     section {
       margin-bottom: 60px;
       scroll-margin-top: 150px;
+      width: 100%;
+      max-width: 1200px; /* Limita a largura máxima */
     }
     
     .section-title {
@@ -212,7 +207,7 @@
       border-radius: 2px;
     }
     
-    /* ===== CARROSSEL COM MAIS ESPAÇO ===== */
+    /* ===== CARROSSEL CENTRALIZADO ===== */
     .carousel-container {
       position: relative;
       width: 100%;
@@ -222,6 +217,9 @@
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     
     .carousel-slide {
@@ -273,6 +271,7 @@
       text-align: center;
       padding: 20px 0;
       margin-bottom: 40px;
+      width: 100%;
     }
     
     .hero h1 {
@@ -426,7 +425,7 @@
       box-shadow: 0 8px 18px rgba(0, 180, 216, 0.3);
     }
     
-    /* ===== RODAPÉ ===== */
+    /* ===== RODAPÉ COM LOGO À ESQUERDA ===== */
     .main-footer {
       background: rgba(0, 0, 0, 0.9);
       padding: 40px 5%;
@@ -447,15 +446,17 @@
     .footer-logo-container {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start; /* Alinhamento à esquerda */
       gap: 25px;
       margin-bottom: 20px;
       flex-wrap: wrap;
+      width: 100%;
+      padding-left: 3px; /* MARGEM DE 3px DA BORDA ESQUERDA */
     }
     
     .footer-logo {
-      width: 140px; /* MESMA PROPORÇÃO DO CABEÇALHO */
-      height: 140px; /* MESMA PROPORÇÃO DO CABEÇALHO */
+      width: 140px;
+      height: 140px;
       border-radius: 20px;
       object-fit: cover;
       border: 3px solid #000000;
@@ -465,13 +466,13 @@
     .footer-title {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      align-items: flex-start; /* Alinhado à esquerda */
+      text-align: left; /* Texto à esquerda */
     }
     
     .footer-title h3 {
-      font-family: 'Oswald', sans-serif; /* MESMA FONTE DO CABEÇALHO */
-      font-size: 4rem; /* TAMANHO PROPORCIONAL */
+      font-family: 'Oswald', sans-serif;
+      font-size: 4rem;
       font-weight: 700;
       color: var(--text-light);
       letter-spacing: 2px;
@@ -481,7 +482,7 @@
     }
     
     .footer-title p {
-      font-family: 'Oswald', sans-serif; /* MESMA FONTE DO CABEÇALHO */
+      font-family: 'Oswald', sans-serif;
       font-size: 1.4rem;
       color: var(--accent);
       margin-top: 8px;
@@ -544,7 +545,7 @@
       }
       
       .nav-menu {
-        right: 3%;
+        gap: 20px;
       }
     }
     
@@ -556,16 +557,21 @@
       }
       
       .logo-container {
-        flex-direction: column;
+        justify-content: center; /* Centralizado no mobile */
+        margin-left: 0;
         gap: 15px;
         width: 100%;
-        margin-bottom: 0;
-        justify-content: center;
+        margin-bottom: 10px;
       }
       
       .logo {
         width: 120px;
         height: 120px;
+      }
+      
+      .company-title {
+        align-items: center; /* Centralizado no mobile */
+        text-align: center; /* Centralizado no mobile */
       }
       
       .mobile-menu-btn {
@@ -588,7 +594,7 @@
         padding-top: 30px;
         gap: 25px;
         transition: var(--transition);
-        right: auto;
+        margin-right: 0;
       }
       
       .nav-menu.active {
@@ -632,11 +638,18 @@
       .footer-logo-container {
         flex-direction: column;
         gap: 15px;
+        justify-content: center; /* Centralizado no mobile */
+        padding-left: 0;
       }
       
       .footer-logo {
         width: 120px;
         height: 120px;
+      }
+      
+      .footer-title {
+        align-items: center; /* Centralizado no mobile */
+        text-align: center; /* Centralizado no mobile */
       }
       
       .footer-title h3 {
@@ -725,7 +738,7 @@
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO COM TEXTO CENTRALIZADO -->
+  <!-- CABEÇALHO COM LOGO À ESQUERDA -->
   <header class="main-header">
     <div class="logo-container">
       <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
@@ -750,7 +763,7 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="main-content">
     
-    <!-- CARROSSEL -->
+    <!-- CARROSSEL CENTRALIZADO -->
     <div class="carousel-container">
       <div class="carousel-slide active">
         <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Painel HMI Weintek">
@@ -906,7 +919,7 @@
     </section>
   </main>
 
-  <!-- RODAPÉ -->
+  <!-- RODAPÉ COM LOGO À ESQUERDA -->
   <footer class="main-footer">
     <div class="footer-content">
       <div class="footer-logo-container">
@@ -1009,4 +1022,3 @@
   </script>
 </body>
 </html>
-
