@@ -46,103 +46,105 @@
       overflow-x: hidden;
     }
     
-    /* ===== CABEÇALHO COM LOGO CENTRALIZADO ===== */
+    /* ===== CABEÇALHO APENAS COM LOGO ===== */
     .main-header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: transparent;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--glass-border);
       z-index: 1000;
-      padding: 10px 5%;
+      padding: 15px 5%;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       transition: var(--transition);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     
     .header-scrolled {
-      padding: 8px 5%;
+      padding: 10px 5%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(15px);
     }
     
     .logo-container {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      margin-bottom: 10px;
+      position: relative;
     }
     
     .logo {
-      width: 440px; /* Aumentado em 100px */
+      width: 440px;
       height: auto;
-      max-height: 540px; /* Ajuste proporcional */
+      max-height: 540px;
       border-radius: 10px;
       object-fit: contain;
       border: 3px solid #000000;
       transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        0 0 0 0px rgba(255, 255, 255, 0);
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Efeito de gradiente elíptico transparente ao redor do logo */
+    .logo::after {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      right: -15px;
+      bottom: -15px;
+      border-radius: 20px;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(45, 205, 223, 0.15) 0%,
+        rgba(45, 205, 223, 0.1) 30%,
+        rgba(45, 205, 223, 0.05) 50%,
+        transparent 70%
+      );
+      z-index: 1;
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
     }
     
     .logo:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.5),
+        0 0 0 8px rgba(45, 205, 223, 0.1);
     }
     
-    /* ===== MENU DE NAVEGAÇÃO ===== */
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-      margin-top: 10px;
+    .logo:hover::after {
+      background: radial-gradient(
+        ellipse at center,
+        rgba(45, 205, 223, 0.25) 0%,
+        rgba(45, 205, 223, 0.15) 30%,
+        rgba(45, 205, 223, 0.08) 50%,
+        transparent 70%
+      );
     }
     
-    .nav-menu a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 8px 0;
-      position: relative;
-      transition: var(--transition);
-    }
-    
-    .nav-menu a:hover {
-      color: var(--accent);
-    }
-    
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: var(--transition);
-    }
-    
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-    
-    .mobile-menu-btn {
+    /* ===== NAVEGAÇÃO REMOVIDA ===== */
+    .nav-menu, .mobile-menu-btn {
       display: none;
-      background: none;
-      border: none;
-      color: var(--text-light);
-      font-size: 1.5rem;
-      cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 20px;
     }
     
     /* ===== CONTEÚDO PRINCIPAL ===== */
     .main-content {
-      margin-top: 350px;
+      margin-top: 250px;
       padding: 0 5%;
       display: flex;
       flex-direction: column;
@@ -151,7 +153,7 @@
     
     section {
       margin-bottom: 60px;
-      scroll-margin-top: 150px;
+      scroll-margin-top: 100px;
       width: 100%;
       max-width: 1200px;
     }
@@ -186,7 +188,7 @@
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 50px auto 10px; /* Aumentei a margem inferior para 80px */
+      margin: 50px auto 10px;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -420,7 +422,7 @@
     }
     
     .footer-logo {
-      width: 240px; /* Aumentado proporcionalmente */
+      width: 240px;
       height: auto;
       max-height: 240px;
       border-radius: 20px;
@@ -449,12 +451,16 @@
     /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 1200px) {
       .logo {
-        width: 380px; /* Ajuste proporcional para telas menores */
+        width: 380px;
       }
       
       .carousel-container {
         max-width: 800px;
         height: 400px;
+      }
+      
+      .main-content {
+        margin-top: 220px;
       }
     }
     
@@ -472,46 +478,22 @@
         width: 340px;
       }
       
-      .nav-menu {
-        gap: 25px;
+      .main-content {
+        margin-top: 200px;
       }
     }
     
     @media (max-width: 768px) {
       .main-header {
-        padding: 8px 20px;
-        flex-direction: column;
+        padding: 10px 20px;
       }
       
       .logo {
-        width: 300px; /* Ajuste para mobile */
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-      
-      .nav-menu {
-        position: fixed;
-        top: 140px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 140px);
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 30px;
-        gap: 25px;
-        transition: var(--transition);
-      }
-      
-      .nav-menu.active {
-        left: 0;
+        width: 300px;
       }
       
       .main-content {
-        margin-top: 160px;
+        margin-top: 180px;
         padding: 0 20px;
       }
       
@@ -529,7 +511,7 @@
       
       .carousel-container {
         height: 300px;
-        margin: 30px auto 60px; /* Margem reduzida para mobile */
+        margin: 30px auto 60px;
         max-width: 90%;
       }
       
@@ -540,11 +522,15 @@
     
     @media (max-width: 576px) {
       .main-header {
-        padding: 6px 15px;
+        padding: 8px 15px;
       }
       
       .logo {
-        width: 250px; /* Ajuste para telas muito pequenas */
+        width: 250px;
+      }
+      
+      .main-content {
+        margin-top: 150px;
       }
       
       .hero h1 {
@@ -578,10 +564,6 @@
         gap: 25px;
       }
       
-      .nav-menu {
-        gap: 20px;
-      }
-      
       .social-link {
         width: 60px;
         height: 60px;
@@ -601,26 +583,19 @@
       .footer-logo {
         width: 150px;
       }
+      
+      .main-content {
+        margin-top: 130px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO COM LOGO CENTRALIZADO -->
+  <!-- CABEÇALHO APENAS COM LOGO -->
   <header class="main-header">
     <div class="logo-container">
       <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
     </div>
-    
-    <button class="mobile-menu-btn" id="mobileMenuBtn">
-      <i class="fas fa-bars"></i>
-    </button>
-    
-    <nav class="nav-menu" id="navMenu">
-      <li><a href="#home">Início</a></li>
-      <li><a href="#about">Sobre</a></li>
-      <li><a href="#services">Serviços</a></li>
-      <li><a href="#contact">Contato</a></li>
-    </nav>
   </header>
 
   <!-- CONTEÚDO PRINCIPAL -->
@@ -808,25 +783,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Menu mobile
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const navMenu = document.getElementById('navMenu');
-      
-      mobileMenuBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-          ? '<i class="fas fa-times"></i>' 
-          : '<i class="fas fa-bars"></i>';
-      });
-      
-      // Fechar menu ao clicar em um link
-      document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('active');
-          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        });
-      });
-      
       // Efeito de scroll no header
       window.addEventListener('scroll', function() {
         const header = document.querySelector('.main-header');
@@ -878,7 +834,7 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 140,
+              top: targetElement.offsetTop - 100,
               behavior: 'smooth'
             });
           }
@@ -888,10 +844,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
