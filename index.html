@@ -22,24 +22,8 @@
       --glass-border: rgba(255, 255, 255, 0.1);
       --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       --radius: 12px;
-     
       --transition: all 0.3s ease;
-
-
-
-
-.carousel-controls {
-  display: none !important;
-}
-
-
-
-
-
-      
     }
-
-    
     
     * {
       margin: 0;
@@ -62,7 +46,7 @@
       overflow-x: hidden;
     }
     
-    /* ===== CABEÇALHO COM LOGO À ESQUERDA ===== */
+    /* ===== CABEÇALHO COM LOGO CENTRALIZADO ===== */
     .main-header {
       position: fixed;
       top: 0;
@@ -71,35 +55,32 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--glass-border);
       z-index: 1000;
-      padding: 5px 5%;
+      padding: 10px 5%;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      center-content: space-between; /* Logo à esquerda, menu à direita */
       transition: var(--transition);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     
     .header-scrolled {
-      padding: 4px 5%;
+      padding: 8px 5%;
     }
     
     .logo-container {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 550px; /* Espaço entre logo e texto */
-      justify-content: flex-start; /* Alinhamento à esquerda */
-      margin-left: 0px; /* MARGEM DE 3px DA BORDA ESQUERDA */
+      width: 100%;
+      margin-bottom: 10px;
     }
     
     .logo {
-      width: 340px;
-      height: 240px;
-      
-  margin-left: -60px; /* ajuste o valor conforme desejar */
-
-
+      width: 440px; /* Aumentado em 100px */
+      height: auto;
+      max-height: 340px; /* Ajuste proporcional */
       border-radius: 10px;
-      object-fit: cover;
+      object-fit: contain;
       border: 3px solid #000000;
       transition: var(--transition);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -110,43 +91,12 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     }
     
-    .company-title {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; /* Alinhado à esquerda */
-      text-align: center; /* Texto à esquerda */
-    }
-    
-    .company-title h1 {
-      font-family: 'Arvo', serif;
-      font-size: 5.5rem;
-      font-weight: 700;
-      color: var(--text-light);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin: 0;
-      line-height: 1;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    
-    .company-title p {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.8rem;
-      color: #ffffff;
-      margin-top: 8px;
-      margin-right: 20px; /* MARGEM DE 3px DA BORDA DIREITA */
-      padding-left: 20px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
     /* ===== MENU DE NAVEGAÇÃO ===== */
     .nav-menu {
       display: flex;
       list-style: none;
-      gap: 25px;
-      margin-right: 1px; /* MARGEM DE 3px DA BORDA DIREITA */
+      gap: 30px;
+      margin-top: 10px;
     }
     
     .nav-menu a {
@@ -187,6 +137,7 @@
       cursor: pointer;
       position: absolute;
       right: 20px;
+      top: 20px;
     }
     
     /* ===== CONTEÚDO PRINCIPAL ===== */
@@ -195,14 +146,14 @@
       padding: 0 5%;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Centraliza todo o conteúdo */
+      align-items: center;
     }
     
     section {
       margin-bottom: 60px;
       scroll-margin-top: 150px;
       width: 100%;
-      max-width: 1200px; /* Limita a largura máxima */
+      max-width: 1200px;
     }
     
     .section-title {
@@ -229,19 +180,16 @@
       border-radius: 2px;
     }
     
-    /* ===== CARROSSEL CENTRALIZADO ===== */
+    /* ===== CARROSSEL COM ESPAÇO DO LOGO ===== */
     .carousel-container {
       position: relative;
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 30px auto 50px;
+      margin: 50px auto 80px; /* Aumentei a margem inferior para 80px */
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     
     .carousel-slide {
@@ -447,7 +395,7 @@
       box-shadow: 0 8px 18px rgba(0, 180, 216, 0.3);
     }
     
-    /* ===== RODAPÉ COM LOGO À ESQUERDA ===== */
+    /* ===== RODAPÉ ===== */
     .main-footer {
       background: rgba(0, 0, 0, 0.9);
       padding: 40px 5%;
@@ -462,78 +410,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      center-content: center;
-
-
-
-
-      
     }
     
     .footer-logo-container {
       display: flex;
+      justify-content: center;
       align-items: center;
-      
-      gap: 25px;
       margin-bottom: 20px;
-      flex-wrap: wrap;
-      width: 100%;
-      
-
-justify-content: center;
-  text-align: center;
-  padding-left: 0;
- 
-
-
-
-      
     }
     
     .footer-logo {
-      width: 140px;
-      height: 140px;
+      width: 240px; /* Aumentado proporcionalmente */
+      height: auto;
+      max-height: 240px;
       border-radius: 20px;
-      object-fit: cover;
+      object-fit: contain;
       border: 3px solid #000000;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
-    
-    .footer-title {
-      display: flex;
-      flex-direction: column;
-      
-  
-
-  align-items: center;
-  text-align: center;
-
-      
-    }
-    
-    .footer-title h3 {
-      font-family: 'Didot', serif;
-      font-size: 4rem;
-      font-weight: 700;
-      color: var(--text-light);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      line-height: 1;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    
-    }
-    
-    .footer-title p {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.4rem;
-      color: var(--accent);
-      margin-top: 8px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    
-    }
-    
     
     .footer-description {
       color: var(--text-gray);
@@ -553,6 +447,17 @@ justify-content: center;
     }
     
     /* ===== RESPONSIVIDADE ===== */
+    @media (max-width: 1200px) {
+      .logo {
+        width: 380px; /* Ajuste proporcional para telas menores */
+      }
+      
+      .carousel-container {
+        max-width: 800px;
+        height: 400px;
+      }
+    }
+    
     @media (max-width: 1024px) {
       .hero h1 {
         font-size: 2.2rem;
@@ -560,77 +465,38 @@ justify-content: center;
       
       .carousel-container {
         height: 380px;
+        max-width: 700px;
       }
       
       .logo {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .company-title h1 {
-        font-size: 3.5rem;
-      }
-      
-      .company-title p {
-        font-size: 1.4rem;
-      }
-      
-      .footer-logo {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .footer-title h3 {
-        font-size: 3rem;
-      }
-      
-      .footer-title p {
-        font-size: 1.2rem;
+        width: 340px;
       }
       
       .nav-menu {
-        gap: 20px;
+        gap: 25px;
       }
     }
     
     @media (max-width: 768px) {
       .main-header {
-        padding: 4px 20px;
+        padding: 8px 20px;
         flex-direction: column;
-        justify-content: center;
-      }
-      
-      .logo-container {
-        justify-content: center; /* Centralizado no mobile */
-        margin-left: 0;
-        gap: 15px;
-        width: 100%;
-        margin-bottom: 10px;
       }
       
       .logo {
-        width: 120px;
-        height: 120px;
-      }
-      
-      .company-title {
-        align-items: center; /* Centralizado no mobile */
-        text-align: center; /* Centralizado no mobile */
+        width: 300px; /* Ajuste para mobile */
       }
       
       .mobile-menu-btn {
         display: block;
-        position: absolute;
-        right: 20px;
-        top: 20px;
       }
       
       .nav-menu {
         position: fixed;
-        top: 180px;
+        top: 140px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 180px);
+        height: calc(100vh - 140px);
         background: rgba(0, 0, 0, 0.95);
         flex-direction: column;
         align-items: center;
@@ -638,7 +504,6 @@ justify-content: center;
         padding-top: 30px;
         gap: 25px;
         transition: var(--transition);
-        margin-right: 0;
       }
       
       .nav-menu.active {
@@ -646,12 +511,8 @@ justify-content: center;
       }
       
       .main-content {
-        margin-top: 200px;
+        margin-top: 160px;
         padding: 0 20px;
-      }
-      
-      .hero {
-        padding: 20px 0;
       }
       
       .hero h1 {
@@ -668,65 +529,22 @@ justify-content: center;
       
       .carousel-container {
         height: 300px;
-        margin: 20px auto 40px;
-      }
-      
-      .company-title h1 {
-        font-size: 2.8rem;
-      }
-      
-      .company-title p {
-        font-size: 1.2rem;
-      }
-      
-      .footer-logo-container {
-        flex-direction: column;
-        gap: 15px;
-        justify-content: center; /* Centralizado no mobile */
-        padding-left: 0;
+        margin: 30px auto 60px; /* Margem reduzida para mobile */
+        max-width: 90%;
       }
       
       .footer-logo {
-        width: 120px;
-        height: 120px;
-      }
-      
-      .footer-title {
-        align-items: center; /* Centralizado no mobile */
-        text-align: center; /* Centralizado no mobile */
-      }
-      
-      .footer-title h3 {
-        font-size: 2.5rem;
-      }
-      
-      .footer-title p {
-        font-size: 1.1rem;
+        width: 200px;
       }
     }
     
     @media (max-width: 576px) {
       .main-header {
-        padding: 4px 15px;
-      }
-      
-      .logo-container {
-        gap: 12px;
+        padding: 6px 15px;
       }
       
       .logo {
-        width: 100px;
-        height: 100px;
-        border-radius: 15px;
-      }
-      
-      .company-title h1 {
-        font-size: 2.2rem;
-        letter-spacing: 1px;
-      }
-      
-      .company-title p {
-        font-size: 1rem;
+        width: 250px; /* Ajuste para telas muito pequenas */
       }
       
       .hero h1 {
@@ -748,26 +566,11 @@ justify-content: center;
       
       .carousel-container {
         height: 220px;
-        margin: 15px auto 30px;
+        margin: 20px auto 50px;
       }
       
       .footer-logo {
-        width: 100px;
-        height: 100px;
-        border-radius: 15px;
-      }
-      
-      .footer-title h3 {
-        font-size: 2rem;
-      }
-      
-      .footer-title p {
-        font-size: 0.95rem;
-      }
-      
-      .footer-description {
-        font-size: 0.9rem;
-        padding: 0 10px;
+        width: 180px;
       }
       
       .contact-container {
@@ -778,18 +581,34 @@ justify-content: center;
       .nav-menu {
         gap: 20px;
       }
+      
+      .social-link {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .logo {
+        width: 200px;
+      }
+      
+      .carousel-container {
+        height: 180px;
+      }
+      
+      .footer-logo {
+        width: 150px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO COM LOGO À ESQUERDA -->
+  <!-- CABEÇALHO COM LOGO CENTRALIZADO -->
   <header class="main-header">
     <div class="logo-container">
       <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
-      <div class="company-title">
-        <h1></h1>
-        <p></p>
-      </div>
     </div>
     
     <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -807,7 +626,7 @@ justify-content: center;
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="main-content">
     
-    <!-- CARROSSEL CENTRALIZADO -->
+    <!-- CARROSSEL COM ESPAÇO DO LOGO -->
     <div class="carousel-container">
       <div class="carousel-slide active">
         <img src="https://www.plcdirect.eu/media/com_hikashop/upload/weintekpanelehmi_2.jpg" alt="Painel HMI Weintek">
@@ -821,7 +640,6 @@ justify-content: center;
       <div class="carousel-slide">
         <img src="https://assets.new.siemens.com/siemens/assets/api/uuid:949810fa4b3b04bf5027400fa6bb8e0b83b51c03/width:1125/quality:high/crop:0,0:0,2265625:0,9978142076502732:0,501953125/digital-layer-basic-controller.tif" alt="Controlador Siemens">
       </div>
-
       <div class="carousel-slide">
         <img src="https://nzcontrols.co.nz/wp-content/uploads/2020/11/rockwell-automation-products.jpg" alt="Rokwell">
       </div>
@@ -888,24 +706,14 @@ justify-content: center;
           <h3>Integração de Sensores e Atuação</h3>
           <p>Instalação e parametrização de sensores, inversores e servomotores para controle preciso de processos.</p>
         </div>
-
-
-
-  <div class="service-card">
+        
+        <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-server"></i>
           </div>
           <h3>Manutenção</h3>
-          <p>Backup,atualização,modificação e manutenção em CLPs de todas as marcas.</p>
+          <p>Backup, atualização, modificação e manutenção em CLPs de todas as marcas.</p>
         </div>
-
-
-
-
-
-        
-
-        
       </div>
     </section>
 
@@ -924,8 +732,8 @@ justify-content: center;
               <i class="fas fa-phone"></i>
             </div>
             <div class="contact-details">
-              <h4>Wats APP</h4>
-              <p>(51) 985290509</p>
+              <h4>WhatsApp</h4>
+              <p>(51) 98529-0509</p>
             </div>
           </div>
           
@@ -981,14 +789,11 @@ justify-content: center;
     </section>
   </main>
 
-  <!-- RODAPÉ COM LOGO À ESQUERDA -->
+  <!-- RODAPÉ -->
   <footer class="main-footer">
     <div class="footer-content">
       <div class="footer-logo-container">
         <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="footer-logo">
-        <div class="footer-title">
-        
-        </div>
       </div>
       
       <p class="footer-description">
@@ -1083,47 +888,3 @@ justify-content: center;
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
