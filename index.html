@@ -16,6 +16,7 @@
       --primary-light: #00b4d8;
       --secondary: #1a1a2e;
       --accent: #2dcddf;
+      --accent-glow: rgba(45, 205, 223, 0.6);
       --text-light: #ffffff;
       --text-gray: #e0e0e0;
       --glass-bg: rgba(10, 10, 10, 0.01);
@@ -74,6 +75,11 @@
       position: relative;
     }
     
+    .logo-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    
     .logo {
       width: 440px;
       height: auto;
@@ -82,59 +88,104 @@
       object-fit: contain;
       border: 3px solid #000000;
       transition: var(--transition);
-      box-shadow: 
-        0 4px 15px rgba(0, 0, 0, 0.3),
-        0 0 0 0px rgba(255, 255, 255, 0);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       position: relative;
       z-index: 2;
+      display: block;
     }
     
-    /* Efeito de gradiente elíptico transparente ao redor do logo */
-    .logo::after {
-      content: '';
+    /* Efeito de gradiente oval achatado FORTE e transparente */
+    .logo-glow {
       position: absolute;
-      top: -15px;
-      left: -15px;
-      right: -15px;
-      bottom: -15px;
-      border-radius: 20px;
+      top: -40px;
+      left: -80px;
+      right: -80px;
+      bottom: -40px;
+      border-radius: 50%;
       background: radial-gradient(
         ellipse at center,
-        rgba(45, 205, 223, 0.15) 0%,
-        rgba(45, 205, 223, 0.1) 30%,
-        rgba(45, 205, 223, 0.05) 50%,
-        transparent 70%
+        rgba(45, 205, 223, 0.5) 0%,
+        rgba(45, 205, 223, 0.3) 25%,
+        rgba(45, 205, 223, 0.15) 40%,
+        transparent 65%
       );
       z-index: 1;
-      animation: pulse-glow 4s ease-in-out infinite;
+      animation: glow-pulse 3s ease-in-out infinite;
+      filter: blur(15px);
+      transform: scale(1.1, 0.8); /* Achatamento do oval */
     }
     
-    @keyframes pulse-glow {
+    /* Segunda camada para intensificar o efeito */
+    .logo-glow-inner {
+      position: absolute;
+      top: -25px;
+      left: -50px;
+      right: -50px;
+      bottom: -25px;
+      border-radius: 50%;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(45, 205, 223, 0.7) 0%,
+        rgba(45, 205, 223, 0.4) 30%,
+        rgba(45, 205, 223, 0.2) 50%,
+        transparent 75%
+      );
+      z-index: 1;
+      animation: glow-pulse 2.5s ease-in-out infinite reverse;
+      filter: blur(10px);
+      transform: scale(1.05, 0.85); /* Achatamento ajustado */
+    }
+    
+    @keyframes glow-pulse {
       0%, 100% {
-        opacity: 0.7;
-        transform: scale(1);
+        opacity: 0.8;
+        transform: scale(1.1, 0.8);
       }
       50% {
         opacity: 1;
-        transform: scale(1.05);
+        transform: scale(1.15, 0.85);
+      }
+    }
+    
+    .logo-wrapper:hover .logo-glow {
+      background: radial-gradient(
+        ellipse at center,
+        rgba(45, 205, 223, 0.7) 0%,
+        rgba(45, 205, 223, 0.5) 25%,
+        rgba(45, 205, 223, 0.3) 40%,
+        transparent 65%
+      );
+      filter: blur(20px);
+      animation: glow-pulse-hover 1.5s ease-in-out infinite;
+    }
+    
+    .logo-wrapper:hover .logo-glow-inner {
+      background: radial-gradient(
+        ellipse at center,
+        rgba(45, 205, 223, 0.9) 0%,
+        rgba(45, 205, 223, 0.6) 30%,
+        rgba(45, 205, 223, 0.3) 50%,
+        transparent 75%
+      );
+      filter: blur(15px);
+    }
+    
+    @keyframes glow-pulse-hover {
+      0%, 100% {
+        opacity: 0.9;
+        transform: scale(1.15, 0.85);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2, 0.9);
       }
     }
     
     .logo:hover {
       transform: scale(1.05);
       box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.5),
-        0 0 0 8px rgba(45, 205, 223, 0.1);
-    }
-    
-    .logo:hover::after {
-      background: radial-gradient(
-        ellipse at center,
-        rgba(45, 205, 223, 0.25) 0%,
-        rgba(45, 205, 223, 0.15) 30%,
-        rgba(45, 205, 223, 0.08) 50%,
-        transparent 70%
-      );
+        0 6px 25px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(45, 205, 223, 0.4);
     }
     
     /* ===== NAVEGAÇÃO REMOVIDA ===== */
@@ -419,6 +470,7 @@
       justify-content: center;
       align-items: center;
       margin-bottom: 20px;
+      position: relative;
     }
     
     .footer-logo {
@@ -429,6 +481,28 @@
       object-fit: contain;
       border: 3px solid #000000;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Efeito de gradiente no rodapé também */
+    .footer-logo-glow {
+      position: absolute;
+      top: -20px;
+      left: -40px;
+      right: -40px;
+      bottom: -20px;
+      border-radius: 50%;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(45, 205, 223, 0.3) 0%,
+        rgba(45, 205, 223, 0.15) 25%,
+        rgba(45, 205, 223, 0.05) 40%,
+        transparent 65%
+      );
+      z-index: 1;
+      filter: blur(10px);
+      transform: scale(1.1, 0.8);
     }
     
     .footer-description {
@@ -452,6 +526,20 @@
     @media (max-width: 1200px) {
       .logo {
         width: 380px;
+      }
+      
+      .logo-glow {
+        top: -35px;
+        left: -70px;
+        right: -70px;
+        bottom: -35px;
+      }
+      
+      .logo-glow-inner {
+        top: -20px;
+        left: -40px;
+        right: -40px;
+        bottom: -20px;
       }
       
       .carousel-container {
@@ -478,6 +566,20 @@
         width: 340px;
       }
       
+      .logo-glow {
+        top: -30px;
+        left: -60px;
+        right: -60px;
+        bottom: -30px;
+      }
+      
+      .logo-glow-inner {
+        top: -15px;
+        left: -35px;
+        right: -35px;
+        bottom: -15px;
+      }
+      
       .main-content {
         margin-top: 200px;
       }
@@ -490,6 +592,20 @@
       
       .logo {
         width: 300px;
+      }
+      
+      .logo-glow {
+        top: -25px;
+        left: -50px;
+        right: -50px;
+        bottom: -25px;
+      }
+      
+      .logo-glow-inner {
+        top: -15px;
+        left: -30px;
+        right: -30px;
+        bottom: -15px;
       }
       
       .main-content {
@@ -518,6 +634,13 @@
       .footer-logo {
         width: 200px;
       }
+      
+      .footer-logo-glow {
+        top: -15px;
+        left: -30px;
+        right: -30px;
+        bottom: -15px;
+      }
     }
     
     @media (max-width: 576px) {
@@ -527,6 +650,22 @@
       
       .logo {
         width: 250px;
+      }
+      
+      .logo-glow {
+        top: -20px;
+        left: -40px;
+        right: -40px;
+        bottom: -20px;
+        filter: blur(12px);
+      }
+      
+      .logo-glow-inner {
+        top: -10px;
+        left: -25px;
+        right: -25px;
+        bottom: -10px;
+        filter: blur(8px);
       }
       
       .main-content {
@@ -559,6 +698,13 @@
         width: 180px;
       }
       
+      .footer-logo-glow {
+        top: -10px;
+        left: -25px;
+        right: -25px;
+        bottom: -10px;
+      }
+      
       .contact-container {
         grid-template-columns: 1fr;
         gap: 25px;
@@ -574,6 +720,20 @@
     @media (max-width: 400px) {
       .logo {
         width: 200px;
+      }
+      
+      .logo-glow {
+        top: -15px;
+        left: -30px;
+        right: -30px;
+        bottom: -15px;
+      }
+      
+      .logo-glow-inner {
+        top: -8px;
+        left: -20px;
+        right: -20px;
+        bottom: -8px;
       }
       
       .carousel-container {
@@ -594,7 +754,11 @@
   <!-- CABEÇALHO APENAS COM LOGO -->
   <header class="main-header">
     <div class="logo-container">
-      <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
+      <div class="logo-wrapper">
+        <div class="logo-glow"></div>
+        <div class="logo-glow-inner"></div>
+        <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
+      </div>
     </div>
   </header>
 
@@ -768,6 +932,7 @@
   <footer class="main-footer">
     <div class="footer-content">
       <div class="footer-logo-container">
+        <div class="footer-logo-glow"></div>
         <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="footer-logo">
       </div>
       
