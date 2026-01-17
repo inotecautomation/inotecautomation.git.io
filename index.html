@@ -47,7 +47,7 @@
       overflow-x: hidden;
     }
     
-    /* ===== CABEÇALHO APENAS COM LOGO ===== */
+    /* ===== CABEÇALHO APENAS COM LOGO CIRCULAR ===== */
     .main-header {
       position: fixed;
       top: 0;
@@ -81,12 +81,11 @@
     }
     
     .logo {
-      width: 440px;
-      height: auto;
-      max-height: 540px;
-      border-radius: 10px;
-      object-fit: contain;
-      border: 3px solid #000000;
+      width: 200px; /* Reduzido para ficar proporcional como círculo */
+      height: 200px; /* Adicionado altura igual à largura para formar um círculo perfeito */
+      border-radius: 50%; /* Transforma em círculo */
+      object-fit: cover; /* Ajusta a imagem dentro do círculo */
+      border: none; /* Remove a borda preta */
       transition: var(--transition);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       position: relative;
@@ -94,66 +93,64 @@
       display: block;
     }
     
-    /* Efeito de gradiente oval achatado FORTE e transparente */
+    /* Efeito de gradiente circular ajustado para o novo formato */
     .logo-glow {
       position: absolute;
-      top: -40px;
-      left: -80px;
-      right: -80px;
-      bottom: -40px;
-      border-radius: 50%;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      border-radius: 50%; /* Também circular */
       background: radial-gradient(
-        ellipse at center,
+        circle at center,
         rgba(45, 205, 223, 0.5) 0%,
-        rgba(45, 205, 223, 0.3) 25%,
-        rgba(45, 205, 223, 0.15) 40%,
-        transparent 65%
+        rgba(45, 205, 223, 0.3) 40%,
+        rgba(45, 205, 223, 0.15) 60%,
+        transparent 80%
       );
       z-index: 1;
       animation: glow-pulse 3s ease-in-out infinite;
       filter: blur(15px);
-      transform: scale(1.1, 0.8); /* Achatamento do oval */
     }
     
     /* Segunda camada para intensificar o efeito */
     .logo-glow-inner {
       position: absolute;
-      top: -25px;
-      left: -50px;
-      right: -50px;
-      bottom: -25px;
-      border-radius: 50%;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 50%; /* Também circular */
       background: radial-gradient(
-        ellipse at center,
+        circle at center,
         rgba(45, 205, 223, 0.7) 0%,
-        rgba(45, 205, 223, 0.4) 30%,
-        rgba(45, 205, 223, 0.2) 50%,
-        transparent 75%
+        rgba(45, 205, 223, 0.4) 50%,
+        rgba(45, 205, 223, 0.2) 70%,
+        transparent 90%
       );
       z-index: 1;
       animation: glow-pulse 2.5s ease-in-out infinite reverse;
       filter: blur(10px);
-      transform: scale(1.05, 0.85); /* Achatamento ajustado */
     }
     
     @keyframes glow-pulse {
       0%, 100% {
         opacity: 0.8;
-        transform: scale(1.1, 0.8);
+        transform: scale(1);
       }
       50% {
         opacity: 1;
-        transform: scale(1.15, 0.85);
+        transform: scale(1.05);
       }
     }
     
     .logo-wrapper:hover .logo-glow {
       background: radial-gradient(
-        ellipse at center,
+        circle at center,
         rgba(45, 205, 223, 0.7) 0%,
-        rgba(45, 205, 223, 0.5) 25%,
-        rgba(45, 205, 223, 0.3) 40%,
-        transparent 65%
+        rgba(45, 205, 223, 0.5) 40%,
+        rgba(45, 205, 223, 0.3) 60%,
+        transparent 80%
       );
       filter: blur(20px);
       animation: glow-pulse-hover 1.5s ease-in-out infinite;
@@ -161,11 +158,11 @@
     
     .logo-wrapper:hover .logo-glow-inner {
       background: radial-gradient(
-        ellipse at center,
+        circle at center,
         rgba(45, 205, 223, 0.9) 0%,
-        rgba(45, 205, 223, 0.6) 30%,
-        rgba(45, 205, 223, 0.3) 50%,
-        transparent 75%
+        rgba(45, 205, 223, 0.6) 50%,
+        rgba(45, 205, 223, 0.3) 70%,
+        transparent 90%
       );
       filter: blur(15px);
     }
@@ -173,11 +170,11 @@
     @keyframes glow-pulse-hover {
       0%, 100% {
         opacity: 0.9;
-        transform: scale(1.15, 0.85);
+        transform: scale(1.05);
       }
       50% {
         opacity: 1;
-        transform: scale(1.2, 0.9);
+        transform: scale(1.1);
       }
     }
     
@@ -195,7 +192,7 @@
     
     /* ===== CONTEÚDO PRINCIPAL ===== */
     .main-content {
-      margin-top: 250px;
+      margin-top: 180px; /* Reduzido para compensar o logo menor */
       padding: 0 5%;
       display: flex;
       flex-direction: column;
@@ -239,7 +236,7 @@
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 50px auto 10px;
+      margin: 30px auto 10px; /* Reduzido para compensar logo menor */
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -474,12 +471,11 @@
     }
     
     .footer-logo {
-      width: 240px;
-      height: auto;
-      max-height: 240px;
-      border-radius: 20px;
-      object-fit: contain;
-      border: 3px solid #000000;
+      width: 150px; /* Reduzido para combinar com o cabeçalho */
+      height: 150px; /* Altura igual à largura */
+      border-radius: 50%; /* Também circular */
+      object-fit: cover; /* Ajusta a imagem dentro do círculo */
+      border: none; /* Remove a borda preta */
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       position: relative;
       z-index: 2;
@@ -488,21 +484,20 @@
     /* Efeito de gradiente no rodapé também */
     .footer-logo-glow {
       position: absolute;
-      top: -20px;
-      left: -40px;
-      right: -40px;
-      bottom: -20px;
-      border-radius: 50%;
+      top: -15px;
+      left: -15px;
+      right: -15px;
+      bottom: -15px;
+      border-radius: 50%; /* Circular */
       background: radial-gradient(
-        ellipse at center,
+        circle at center,
         rgba(45, 205, 223, 0.3) 0%,
-        rgba(45, 205, 223, 0.15) 25%,
-        rgba(45, 205, 223, 0.05) 40%,
-        transparent 65%
+        rgba(45, 205, 223, 0.15) 40%,
+        rgba(45, 205, 223, 0.05) 60%,
+        transparent 80%
       );
       z-index: 1;
       filter: blur(10px);
-      transform: scale(1.1, 0.8);
     }
     
     .footer-description {
@@ -525,21 +520,22 @@
     /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 1200px) {
       .logo {
-        width: 380px;
+        width: 180px;
+        height: 180px;
       }
       
       .logo-glow {
-        top: -35px;
-        left: -70px;
-        right: -70px;
-        bottom: -35px;
+        top: -18px;
+        left: -18px;
+        right: -18px;
+        bottom: -18px;
       }
       
       .logo-glow-inner {
-        top: -20px;
-        left: -40px;
-        right: -40px;
-        bottom: -20px;
+        top: -9px;
+        left: -9px;
+        right: -9px;
+        bottom: -9px;
       }
       
       .carousel-container {
@@ -548,7 +544,7 @@
       }
       
       .main-content {
-        margin-top: 220px;
+        margin-top: 160px;
       }
     }
     
@@ -563,25 +559,26 @@
       }
       
       .logo {
-        width: 340px;
+        width: 160px;
+        height: 160px;
       }
       
       .logo-glow {
-        top: -30px;
-        left: -60px;
-        right: -60px;
-        bottom: -30px;
+        top: -16px;
+        left: -16px;
+        right: -16px;
+        bottom: -16px;
       }
       
       .logo-glow-inner {
-        top: -15px;
-        left: -35px;
-        right: -35px;
-        bottom: -15px;
+        top: -8px;
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
       }
       
       .main-content {
-        margin-top: 200px;
+        margin-top: 150px;
       }
     }
     
@@ -591,25 +588,26 @@
       }
       
       .logo {
-        width: 300px;
+        width: 140px;
+        height: 140px;
       }
       
       .logo-glow {
-        top: -25px;
-        left: -50px;
-        right: -50px;
-        bottom: -25px;
+        top: -14px;
+        left: -14px;
+        right: -14px;
+        bottom: -14px;
       }
       
       .logo-glow-inner {
-        top: -15px;
-        left: -30px;
-        right: -30px;
-        bottom: -15px;
+        top: -7px;
+        left: -7px;
+        right: -7px;
+        bottom: -7px;
       }
       
       .main-content {
-        margin-top: 180px;
+        margin-top: 130px;
         padding: 0 20px;
       }
       
@@ -627,19 +625,20 @@
       
       .carousel-container {
         height: 300px;
-        margin: 30px auto 60px;
+        margin: 20px auto 60px;
         max-width: 90%;
       }
       
       .footer-logo {
-        width: 200px;
+        width: 120px;
+        height: 120px;
       }
       
       .footer-logo-glow {
-        top: -15px;
-        left: -30px;
-        right: -30px;
-        bottom: -15px;
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
       }
     }
     
@@ -649,27 +648,28 @@
       }
       
       .logo {
-        width: 250px;
+        width: 120px;
+        height: 120px;
       }
       
       .logo-glow {
-        top: -20px;
-        left: -40px;
-        right: -40px;
-        bottom: -20px;
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
         filter: blur(12px);
       }
       
       .logo-glow-inner {
-        top: -10px;
-        left: -25px;
-        right: -25px;
-        bottom: -10px;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
         filter: blur(8px);
       }
       
       .main-content {
-        margin-top: 150px;
+        margin-top: 110px;
       }
       
       .hero h1 {
@@ -691,17 +691,18 @@
       
       .carousel-container {
         height: 220px;
-        margin: 20px auto 50px;
+        margin: 15px auto 50px;
       }
       
       .footer-logo {
-        width: 180px;
+        width: 100px;
+        height: 100px;
       }
       
       .footer-logo-glow {
         top: -10px;
-        left: -25px;
-        right: -25px;
+        left: -10px;
+        right: -10px;
         bottom: -10px;
       }
       
@@ -719,21 +720,22 @@
     
     @media (max-width: 400px) {
       .logo {
-        width: 200px;
+        width: 100px;
+        height: 100px;
       }
       
       .logo-glow {
-        top: -15px;
-        left: -30px;
-        right: -30px;
-        bottom: -15px;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
       }
       
       .logo-glow-inner {
-        top: -8px;
-        left: -20px;
-        right: -20px;
-        bottom: -8px;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
       }
       
       .carousel-container {
@@ -741,17 +743,18 @@
       }
       
       .footer-logo {
-        width: 150px;
+        width: 80px;
+        height: 80px;
       }
       
       .main-content {
-        margin-top: 130px;
+        margin-top: 100px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- CABEÇALHO APENAS COM LOGO -->
+  <!-- CABEÇALHO APENAS COM LOGO CIRCULAR -->
   <header class="main-header">
     <div class="logo-container">
       <div class="logo-wrapper">
