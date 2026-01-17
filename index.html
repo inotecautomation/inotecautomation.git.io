@@ -49,8 +49,7 @@
     
     /* ===== CABEÇALHO APENAS COM LOGO CIRCULAR ===== */
     .main-header {
-      position: fixed;
-      top: 0;
+      position: relative;
       width: 100%;
       background: transparent;
       z-index: 1000;
@@ -59,10 +58,7 @@
       justify-content: center;
       align-items: center;
       transition: var(--transition);
-    }
-    
-    .header-scrolled {
-      padding: 10px 5%;
+      margin-bottom: -120px;
     }
     
     .logo-container {
@@ -78,11 +74,11 @@
     }
     
     .logo {
-      width: 260px; /* Tamanho ajustado */
-      height: 260px; /* Altura igual à largura */
-      border-radius: 50%; /* Transforma em círculo */
-      object-fit: cover; /* Ajusta a imagem dentro do círculo */
-      border: none; /* Remove a borda preta */
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: none;
       transition: var(--transition);
       position: relative;
       z-index: 2;
@@ -97,7 +93,7 @@
       left: -15px;
       right: -15px;
       bottom: -15px;
-      border-radius: 50%; /* Também circular */
+      border-radius: 50%;
       background: radial-gradient(
         circle at center,
         rgba(45, 205, 223, 0.5) 0%,
@@ -117,7 +113,7 @@
       left: -8px;
       right: -8px;
       bottom: -8px;
-      border-radius: 50%; /* Também circular */
+      border-radius: 50%;
       background: radial-gradient(
         circle at center,
         rgba(45, 205, 223, 0.7) 0%,
@@ -189,7 +185,7 @@
     
     /* ===== CONTEÚDO PRINCIPAL ===== */
     .main-content {
-      margin-top: 180px; /* Reduzido para compensar o logo menor */
+      margin-top: 0;
       padding: 0 5%;
       display: flex;
       flex-direction: column;
@@ -198,7 +194,7 @@
     
     section {
       margin-bottom: 60px;
-      scroll-margin-top: 100px;
+      scroll-margin-top: 50px;
       width: 100%;
       max-width: 1200px;
     }
@@ -233,7 +229,7 @@
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 130px auto 10px; /* Reduzido para compensar logo menor */
+      margin: 230px auto 10px;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -257,27 +253,9 @@
       object-fit: cover;
     }
     
+    /* ===== REMOVIDOS OS DOTS DO CARROSSEL ===== */
     .carousel-controls {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-    
-    .carousel-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    
-    .carousel-dot.active {
-      background: var(--accent);
-      transform: scale(1.2);
+      display: none;
     }
     
     /* ===== HERO SECTION ===== */
@@ -509,10 +487,7 @@
       .carousel-container {
         max-width: 800px;
         height: 400px;
-      }
-      
-      .main-content {
-        margin-top: 160px;
+        margin: 200px auto 10px;
       }
     }
     
@@ -524,6 +499,7 @@
       .carousel-container {
         height: 380px;
         max-width: 700px;
+        margin: 180px auto 10px;
       }
       
       .logo {
@@ -543,10 +519,6 @@
         left: -5px;
         right: -5px;
         bottom: -5px;
-      }
-      
-      .main-content {
-        margin-top: 150px;
       }
     }
     
@@ -575,7 +547,6 @@
       }
       
       .main-content {
-        margin-top: 130px;
         padding: 0 20px;
       }
       
@@ -593,7 +564,7 @@
       
       .carousel-container {
         height: 300px;
-        margin: 20px auto 60px;
+        margin: 150px auto 60px;
         max-width: 90%;
       }
       
@@ -636,10 +607,6 @@
         filter: blur(6px);
       }
       
-      .main-content {
-        margin-top: 165px;
-      }
-      
       .hero h1 {
         font-size: 1.7rem;
       }
@@ -659,7 +626,7 @@
       
       .carousel-container {
         height: 220px;
-        margin: 15px auto 50px;
+        margin: 120px auto 50px;
       }
       
       .footer-logo {
@@ -708,15 +675,12 @@
       
       .carousel-container {
         height: 180px;
+        margin: 100px auto 40px;
       }
       
       .footer-logo {
         width: 80px;
         height: 80px;
-      }
-      
-      .main-content {
-        margin-top: 135px;
       }
     }
   </style>
@@ -754,13 +718,7 @@
         <img src="https://nzcontrols.co.nz/wp-content/uploads/2020/11/rockwell-automation-products.jpg" alt="Rokwell">
       </div>
       
-      <div class="carousel-controls">
-        <div class="carousel-dot active" data-slide="0"></div>
-        <div class="carousel-dot" data-slide="1"></div>
-        <div class="carousel-dot" data-slide="2"></div>
-        <div class="carousel-dot" data-slide="3"></div>
-        <div class="carousel-dot" data-slide="4"></div>
-      </div>
+      <!-- DOTS REMOVIDOS -->
     </div>
 
     <!-- SEÇÃO HOME -->
@@ -916,36 +874,14 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Efeito de scroll no header
-      window.addEventListener('scroll', function() {
-        const header = document.querySelector('.main-header');
-        if (window.scrollY > 30) {
-          header.classList.add('header-scrolled');
-        } else {
-          header.classList.remove('header-scrolled');
-        }
-      });
-      
-      // Carrossel automático
+      // Carrossel automático (sem dots)
       let currentSlide = 0;
       const slides = document.querySelectorAll('.carousel-slide');
-      const dots = document.querySelectorAll('.carousel-dot');
       
       function showSlide(index) {
         slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
         slides[index].classList.add('active');
-        dots[index].classList.add('active');
       }
-      
-      // Event listeners para os dots
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-          currentSlide = index;
-          showSlide(currentSlide);
-        });
-      });
       
       // Avançar automaticamente a cada 5 segundos
       function nextSlide() {
@@ -967,17 +903,27 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 100,
+              top: targetElement.offsetTop - 50,
               behavior: 'smooth'
             });
           }
         });
       });
+      
+      // Efeito opcional de opacidade no logo ao rolar
+      window.addEventListener('scroll', function() {
+        const logo = document.querySelector('.logo');
+        const scrollPosition = window.scrollY;
+        
+        // Ajusta a opacidade do logo baseado no scroll
+        const opacity = Math.max(0.7, 1 - scrollPosition / 500);
+        logo.style.opacity = opacity;
+        
+        // Opcional: ajusta o tamanho do logo baseado no scroll
+        const scale = Math.max(0.9, 1 - scrollPosition / 1000);
+        logo.style.transform = `scale(${scale})`;
+      });
     });
   </script>
 </body>
 </html>
-
-
-
-
