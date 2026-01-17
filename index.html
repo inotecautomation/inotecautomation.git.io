@@ -74,8 +74,8 @@
     }
     
     .logo {
-      width: 260px;
-      height: 260px;
+      width: 300px; /* Aumentado em 50% (era 200px, agora 300px) */
+      height: 300px; /* Aumentado em 50% */
       border-radius: 50%;
       object-fit: cover;
       border: none;
@@ -89,10 +89,10 @@
     /* Efeito de gradiente circular ajustado para o novo formato */
     .logo-glow {
       position: absolute;
-      top: -15px;
-      left: -15px;
-      right: -15px;
-      bottom: -15px;
+      top: -18px; /* Ajustado proporcionalmente */
+      left: -18px; /* Ajustado proporcionalmente */
+      right: -18px; /* Ajustado proporcionalmente */
+      bottom: -18px; /* Ajustado proporcionalmente */
       border-radius: 50%;
       background: radial-gradient(
         circle at center,
@@ -109,10 +109,10 @@
     /* Segunda camada para intensificar o efeito */
     .logo-glow-inner {
       position: absolute;
-      top: -8px;
-      left: -8px;
-      right: -8px;
-      bottom: -8px;
+      top: -9px; /* Ajustado proporcionalmente */
+      left: -9px; /* Ajustado proporcionalmente */
+      right: -9px; /* Ajustado proporcionalmente */
+      bottom: -9px; /* Ajustado proporcionalmente */
       border-radius: 50%;
       background: radial-gradient(
         circle at center,
@@ -229,7 +229,7 @@
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 230px auto 10px;
+      margin: 180px auto 10px; /* Reduzido de 230px para 180px (menor distância) */
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -464,86 +464,96 @@
     }
     
     /* ===== RESPONSIVIDADE ===== */
-    @media (max-width: 1200px) {
+    
+    /* Desktop - mantém o logo grande e distância menor */
+    @media (min-width: 1025px) {
       .logo {
-        width: 140px;
-        height: 140px;
+        width: 300px; /* Mantém 50% maior */
+        height: 300px;
       }
       
       .logo-glow {
-        top: -12px;
-        left: -12px;
-        right: -12px;
-        bottom: -12px;
+        top: -18px;
+        left: -18px;
+        right: -18px;
+        bottom: -18px;
       }
       
       .logo-glow-inner {
-        top: -6px;
-        left: -6px;
-        right: -6px;
-        bottom: -6px;
+        top: -9px;
+        left: -9px;
+        right: -9px;
+        bottom: -9px;
+      }
+      
+      .carousel-container {
+        margin: 180px auto 10px; /* Distância reduzida */
+      }
+      
+      .main-header {
+        margin-bottom: -150px; /* Ajustado para o logo maior */
+      }
+    }
+    
+    /* Tablets e laptops menores */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .logo {
+        width: 180px; /* Tamanho intermediário */
+        height: 180px;
+      }
+      
+      .logo-glow {
+        top: -14px;
+        left: -14px;
+        right: -14px;
+        bottom: -14px;
+      }
+      
+      .logo-glow-inner {
+        top: -7px;
+        left: -7px;
+        right: -7px;
+        bottom: -7px;
       }
       
       .carousel-container {
         max-width: 800px;
         height: 400px;
-        margin: 200px auto 10px;
+        margin: 150px auto 10px; /* Distância intermediária */
       }
-    }
-    
-    @media (max-width: 1024px) {
+      
       .hero h1 {
         font-size: 2.2rem;
       }
       
-      .carousel-container {
-        height: 380px;
-        max-width: 700px;
-        margin: 180px auto 10px;
-      }
-      
-      .logo {
-        width: 130px;
-        height: 130px;
-      }
-      
-      .logo-glow {
-        top: -10px;
-        left: -10px;
-        right: -10px;
-        bottom: -10px;
-      }
-      
-      .logo-glow-inner {
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
+      .main-header {
+        margin-bottom: -100px;
       }
     }
     
-    @media (max-width: 768px) {
+    /* Tablets */
+    @media (max-width: 768px) and (min-width: 577px) {
       .main-header {
         padding: 10px 20px;
       }
       
       .logo {
-        width: 120px;
-        height: 120px;
+        width: 200px; /* Aumentado para mobile (era 120px) */
+        height: 200px; /* Aumentado para mobile */
       }
       
       .logo-glow {
-        top: -10px;
-        left: -10px;
-        right: -10px;
-        bottom: -10px;
+        top: -16px; /* Ajustado proporcionalmente */
+        left: -16px;
+        right: -16px;
+        bottom: -16px;
       }
       
       .logo-glow-inner {
-        top: -5px;
-        left: -5px;
-        right: -5px;
-        bottom: -5px;
+        top: -8px; /* Ajustado proporcionalmente */
+        left: -8px;
+        right: -8px;
+        bottom: -8px;
       }
       
       .main-content {
@@ -564,46 +574,39 @@
       
       .carousel-container {
         height: 300px;
-        margin: 150px auto 60px;
+        margin: 220px auto 60px; /* Aumentado de 150px para 220px (maior distância) */
         max-width: 90%;
       }
       
-      .footer-logo {
-        width: 120px;
-        height: 120px;
-      }
-      
-      .footer-logo-glow {
-        top: -12px;
-        left: -12px;
-        right: -12px;
-        bottom: -12px;
+      .main-header {
+        margin-bottom: -120px;
       }
     }
     
-    @media (max-width: 576px) {
+    /* Celulares maiores */
+    @media (max-width: 576px) and (min-width: 401px) {
       .main-header {
         padding: 8px 15px;
       }
       
       .logo {
-        width: 150px;
-        height: 150px;
+        width: 180px; /* Aumentado (era 150px) */
+        height: 180px; /* Aumentado */
       }
       
       .logo-glow {
-        top: -12px;
-        left: -12px;
-        right: -12px;
-        bottom: -12px;
+        top: -14px; /* Ajustado proporcionalmente */
+        left: -14px;
+        right: -14px;
+        bottom: -14px;
         filter: blur(10px);
       }
       
       .logo-glow-inner {
-        top: -6px;
-        left: -6px;
-        right: -6px;
-        bottom: -6px;
+        top: -7px; /* Ajustado proporcionalmente */
+        left: -7px;
+        right: -7px;
+        bottom: -7px;
         filter: blur(6px);
       }
       
@@ -626,19 +629,11 @@
       
       .carousel-container {
         height: 220px;
-        margin: 120px auto 50px;
+        margin: 200px auto 50px; /* Aumentado de 120px para 200px (maior distância) */
       }
       
-      .footer-logo {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .footer-logo-glow {
-        top: -10px;
-        left: -10px;
-        right: -10px;
-        bottom: -10px;
+      .main-header {
+        margin-bottom: -100px;
       }
       
       .contact-container {
@@ -653,34 +648,66 @@
       }
     }
     
+    /* Celulares pequenos */
     @media (max-width: 400px) {
       .logo {
-        width: 135px;
-        height: 135px;
+        width: 160px; /* Aumentado (era 135px) */
+        height: 160px; /* Aumentado */
       }
       
       .logo-glow {
-        top: -9px;
-        left: -9px;
-        right: -9px;
-        bottom: -9px;
+        top: -12px; /* Ajustado proporcionalmente */
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
       }
       
       .logo-glow-inner {
-        top: -4.5px;
-        left: -4.5px;
-        right: -4.5px;
-        bottom: -4.5px;
+        top: -6px; /* Ajustado proporcionalmente */
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
       }
       
       .carousel-container {
         height: 180px;
-        margin: 100px auto 40px;
+        margin: 180px auto 40px; /* Aumentado de 100px para 180px (maior distância) */
       }
       
-      .footer-logo {
-        width: 80px;
-        height: 80px;
+      .main-header {
+        margin-bottom: -90px;
+      }
+    }
+    
+    /* Ajustes gerais para telas muito grandes */
+    @media (min-width: 1600px) {
+      .logo {
+        width: 350px; /* Ainda maior em telas muito grandes */
+        height: 350px;
+      }
+      
+      .logo-glow {
+        top: -21px;
+        left: -21px;
+        right: -21px;
+        bottom: -21px;
+      }
+      
+      .logo-glow-inner {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+      }
+      
+      .carousel-container {
+        max-width: 1000px;
+        height: 500px;
+        margin: 200px auto 10px;
+      }
+      
+      .main-header {
+        margin-bottom: -180px;
       }
     }
   </style>
