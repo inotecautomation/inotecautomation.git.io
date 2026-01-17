@@ -19,8 +19,8 @@
       --accent-glow: rgba(45, 205, 223, 0.6);
       --text-light: #ffffff;
       --text-gray: #e0e0e0;
-      --glass-bg: rgba(10, 10, 10, 0.3);
-      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass-bg: rgba(10, 10, 10, 0.01);
+      --glass-border: rgba(255, 255, 255, 0.1);
       --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       --radius: 12px;
       --transition: all 0.3s ease;
@@ -72,33 +72,14 @@
       position: relative;
     }
     
-    /* Quadro de vidro apenas ao redor do logo 
-    .logo-glass-frame {
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
-      border-radius: 20px;
-      padding: 15px 25px;
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      position: relative;
-      z-index: 2;
-    }*/
-    
-    .header-scrolled .logo-glass-frame {
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(20px);
-      padding: 10px 20px;
-    }
-    
     .logo-wrapper {
       position: relative;
       display: inline-block;
     }
     
     .logo {
-      width: 260px; /* Tamanho ajustado */
-      height: 260px; /* Altura igual à largura */
+      width: 160px; /* Tamanho ajustado */
+      height: 160px; /* Altura igual à largura */
       border-radius: 50%; /* Transforma em círculo */
       object-fit: cover; /* Ajusta a imagem dentro do círculo */
       border: none; /* Remove a borda preta */
@@ -106,6 +87,7 @@
       position: relative;
       z-index: 2;
       display: block;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     
     /* Efeito de gradiente circular ajustado para o novo formato */
@@ -195,6 +177,9 @@
     
     .logo:hover {
       transform: scale(1.05);
+      box-shadow: 
+        0 6px 25px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(45, 205, 223, 0.4);
     }
     
     /* ===== NAVEGAÇÃO REMOVIDA ===== */
@@ -248,7 +233,7 @@
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 130px auto 10px; /* Reduzido para compensar logo menor */
+      margin: 30px auto 10px; /* Reduzido para compensar logo menor */
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -550,10 +535,6 @@
         bottom: -6px;
       }
       
-      .logo-glass-frame {
-        padding: 12px 20px;
-      }
-      
       .carousel-container {
         max-width: 800px;
         height: 400px;
@@ -593,10 +574,6 @@
         bottom: -5px;
       }
       
-      .logo-glass-frame {
-        padding: 10px 18px;
-      }
-      
       .main-content {
         margin-top: 150px;
       }
@@ -624,11 +601,6 @@
         left: -5px;
         right: -5px;
         bottom: -5px;
-      }
-      
-      .logo-glass-frame {
-        padding: 8px 15px;
-        border-radius: 15px;
       }
       
       .main-content {
@@ -691,11 +663,6 @@
         right: -4px;
         bottom: -4px;
         filter: blur(6px);
-      }
-      
-      .logo-glass-frame {
-        padding: 6px 12px;
-        border-radius: 12px;
       }
       
       .main-content {
@@ -768,11 +735,6 @@
         bottom: -3px;
       }
       
-      .logo-glass-frame {
-        padding: 5px 10px;
-        border-radius: 10px;
-      }
-      
       .carousel-container {
         height: 180px;
       }
@@ -792,13 +754,10 @@
   <!-- CABEÇALHO APENAS COM LOGO CIRCULAR -->
   <header class="main-header">
     <div class="logo-container">
-      <!-- Quadro de vidro apenas ao redor do logo -->
-      <div class="logo-glass-frame">
-        <div class="logo-wrapper">
-          <div class="logo-glow"></div>
-          <div class="logo-glow-inner"></div>
-          <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
-        </div>
+      <div class="logo-wrapper">
+        <div class="logo-glow"></div>
+        <div class="logo-glow-inner"></div>
+        <img src="Inotec_logo.jpg" alt="Logo INOTEC" class="logo">
       </div>
     </div>
   </header>
@@ -1050,6 +1009,3 @@
   </script>
 </body>
 </html>
-
-
-
