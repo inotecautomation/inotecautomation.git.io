@@ -36,15 +36,67 @@
       scroll-behavior: smooth;
     }
     
+    /* CORREÇÃO PARA SAFARI - Container de fundo otimizado */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('fundo.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       color: var(--text-light);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
+      background: #000; /* Cor de fallback */
+    }
+    
+    /* Container de fundo fixo para todos os navegadores */
+    .background-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .background-fixed::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+      z-index: 1;
+    }
+    
+    .background-fixed::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('fundo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+      /* Otimizações para Safari */
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+    
+    /* Desativa background-attachment: fixed no iOS */
+    @supports (-webkit-touch-callout: none) {
+      .background-fixed {
+        position: absolute;
+        height: 100vh;
+        /* Força o fundo a se comportar bem no iOS */
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+      }
     }
     
     /* ===== CABEÇALHO APENAS COM LOGO CIRCULAR ===== */
@@ -74,8 +126,8 @@
     }
     
     .logo {
-      width: 300px; /* Aumentado em 50% (era 200px, agora 300px) */
-      height: 300px; /* Aumentado em 50% */
+      width: 300px; /* SUA MEDIDA - Desktop */
+      height: 300px; /* SUA MEDIDA - Desktop */
       border-radius: 50%;
       object-fit: cover;
       border: none;
@@ -84,6 +136,11 @@
       z-index: 2;
       display: block;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      /* Otimizações para Safari */
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      image-rendering: -webkit-optimize-contrast;
     }
     
     /* Efeito de gradiente circular ajustado para o novo formato */
@@ -104,6 +161,7 @@
       z-index: 1;
       animation: glow-pulse 3s ease-in-out infinite;
       filter: blur(12px);
+      -webkit-filter: blur(12px); /* Para Safari */
     }
     
     /* Segunda camada para intensificar o efeito */
@@ -124,6 +182,7 @@
       z-index: 1;
       animation: glow-pulse 2.5s ease-in-out infinite reverse;
       filter: blur(8px);
+      -webkit-filter: blur(8px); /* Para Safari */
     }
     
     @keyframes glow-pulse {
@@ -146,6 +205,7 @@
         transparent 80%
       );
       filter: blur(15px);
+      -webkit-filter: blur(15px);
       animation: glow-pulse-hover 1.5s ease-in-out infinite;
     }
     
@@ -158,6 +218,7 @@
         transparent 90%
       );
       filter: blur(12px);
+      -webkit-filter: blur(12px);
     }
     
     @keyframes glow-pulse-hover {
@@ -190,6 +251,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
     
     section {
@@ -229,10 +292,14 @@
       width: 100%;
       max-width: 900px;
       height: 450px;
-      margin: 180px auto 10px; /* Reduzido de 230px para 180px (menor distância) */
+      margin: 180px auto 10px; /* SUA MEDIDA - Desktop */
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
+      /* Otimizações para Safari */
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
     
     .carousel-slide {
@@ -251,6 +318,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* Otimizações para Safari */
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      image-rendering: -webkit-optimize-contrast;
     }
     
     /* ===== REMOVIDOS OS DOTS DO CARROSSEL ===== */
@@ -295,6 +367,7 @@
     .service-card {
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px); /* Para Safari */
       border-radius: var(--radius);
       padding: 25px;
       border: 1px solid var(--glass-border);
@@ -334,6 +407,7 @@
     .contact-info {
       background: var(--glass-bg);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px); /* Para Safari */
       border-radius: var(--radius);
       padding: 25px;
       border: 1px solid var(--glass-border);
@@ -427,6 +501,8 @@
       text-align: center;
       margin-top: 60px;
       border-top: 1px solid var(--glass-border);
+      position: relative;
+      z-index: 1;
     }
     
     .footer-content {
@@ -436,15 +512,6 @@
       flex-direction: column;
       align-items: center;
     }
-    
-    .footer-logo-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
     
     .footer-description {
       color: var(--text-gray);
@@ -468,7 +535,7 @@
     /* Desktop - mantém o logo grande e distância menor */
     @media (min-width: 1025px) {
       .logo {
-        width: 300px; /* Mantém 50% maior */
+        width: 300px; /* SUA MEDIDA */
         height: 300px;
       }
       
@@ -487,18 +554,18 @@
       }
       
       .carousel-container {
-        margin: 180px auto 10px; /* Distância reduzida */
+        margin: 180px auto 10px; /* SUA MEDIDA */
       }
       
       .main-header {
-        margin-bottom: -150px; /* Ajustado para o logo maior */
+        margin-bottom: -150px;
       }
     }
     
     /* Tablets e laptops menores */
     @media (max-width: 1024px) and (min-width: 769px) {
       .logo {
-        width: 180px; /* Tamanho intermediário */
+        width: 180px; /* SUA MEDIDA */
         height: 180px;
       }
       
@@ -519,7 +586,7 @@
       .carousel-container {
         max-width: 800px;
         height: 400px;
-        margin: 150px auto 10px; /* Distância intermediária */
+        margin: 150px auto 10px; /* SUA MEDIDA */
       }
       
       .hero h1 {
@@ -538,19 +605,19 @@
       }
       
       .logo {
-        width: 200px; /* Aumentado para mobile (era 120px) */
-        height: 200px; /* Aumentado para mobile */
+        width: 200px; /* SUA MEDIDA */
+        height: 200px;
       }
       
       .logo-glow {
-        top: -16px; /* Ajustado proporcionalmente */
+        top: -16px;
         left: -16px;
         right: -16px;
         bottom: -16px;
       }
       
       .logo-glow-inner {
-        top: -8px; /* Ajustado proporcionalmente */
+        top: -8px;
         left: -8px;
         right: -8px;
         bottom: -8px;
@@ -574,7 +641,7 @@
       
       .carousel-container {
         height: 300px;
-        margin: 220px auto 60px; /* Aumentado de 150px para 220px (maior distância) */
+        margin: 220px auto 60px; /* SUA MEDIDA */
         max-width: 90%;
       }
       
@@ -590,24 +657,26 @@
       }
       
       .logo {
-        width: 250px; /* Aumentado (era 150px) */
-        height: 250px; /* Aumentado */
+        width: 250px; /* SUA MEDIDA */
+        height: 250px;
       }
       
       .logo-glow {
-        top: -20px; /* Ajustado proporcionalmente */
+        top: -20px;
         left: -20px;
         right: -20px;
         bottom: -20px;
         filter: blur(10px);
+        -webkit-filter: blur(10px);
       }
       
       .logo-glow-inner {
-        top: -10px; /* Ajustado proporcionalmente */
+        top: -10px;
         left: -10px;
         right: -10px;
         bottom: -10px;
         filter: blur(6px);
+        -webkit-filter: blur(6px);
       }
       
       .hero h1 {
@@ -629,7 +698,7 @@
       
       .carousel-container {
         height: 220px;
-        margin: 130px auto 50px; /* Aumentado de 120px para 200px (maior distância) */
+        margin: 130px auto 50px; /* SUA MEDIDA - Notei que aqui você colocou 130px (não 200px) */
       }
       
       .main-header {
@@ -651,19 +720,19 @@
     /* Celulares pequenos */
     @media (max-width: 400px) {
       .logo {
-        width: 160px; /* Aumentado (era 135px) */
-        height: 160px; /* Aumentado */
+        width: 160px; /* SUA MEDIDA */
+        height: 160px;
       }
       
       .logo-glow {
-        top: -12px; /* Ajustado proporcionalmente */
+        top: -12px;
         left: -12px;
         right: -12px;
         bottom: -12px;
       }
       
       .logo-glow-inner {
-        top: -6px; /* Ajustado proporcionalmente */
+        top: -6px;
         left: -6px;
         right: -6px;
         bottom: -6px;
@@ -671,7 +740,7 @@
       
       .carousel-container {
         height: 180px;
-        margin: 180px auto 40px; /* Aumentado de 100px para 180px (maior distância) */
+        margin: 180px auto 40px; /* SUA MEDIDA */
       }
       
       .main-header {
@@ -682,7 +751,7 @@
     /* Ajustes gerais para telas muito grandes */
     @media (min-width: 1600px) {
       .logo {
-        width: 350px; /* Ainda maior em telas muito grandes */
+        width: 350px; /* SUA MEDIDA */
         height: 350px;
       }
       
@@ -703,16 +772,36 @@
       .carousel-container {
         max-width: 1000px;
         height: 500px;
-        margin: 200px auto 10px;
+        margin: 200px auto 10px; /* SUA MEDIDA */
       }
       
       .main-header {
         margin-bottom: -180px;
       }
     }
+    
+    /* Ajustes específicos para Safari iOS */
+    @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
+      .background-fixed::after {
+        /* Força uma renderização melhor da imagem no Safari mobile */
+        background-size: cover !important;
+        background-position: 50% 50% !important;
+        -webkit-transform: translate3d(0,0,0) scale(1);
+        transform: translate3d(0,0,0) scale(1);
+      }
+      
+      .carousel-slide img {
+        /* Melhora a qualidade das imagens do carrossel no iOS */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- FUNDO FIXO OTIMIZADO PARA SAFARI -->
+  <div class="background-fixed"></div>
+
   <!-- CABEÇALHO APENAS COM LOGO CIRCULAR -->
   <header class="main-header">
     <div class="logo-container">
@@ -887,8 +976,6 @@
   <!-- RODAPÉ -->
   <footer class="main-footer">
     <div class="footer-content">
-      </div>
-      
       <p class="footer-description">
         Soluções completas em automação industrial e retrofit de máquinas, com tecnologia de ponta e profissionais especializados para otimizar seus processos industriais.
       </p>
@@ -950,10 +1037,25 @@
         const scale = Math.max(0.9, 1 - scrollPosition / 1000);
         logo.style.transform = `scale(${scale})`;
       });
+      
+      // Correção específica para Safari iOS
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        // Otimiza elementos visuais para iOS
+        const optimizeForiOS = () => {
+          document.querySelectorAll('.logo, .carousel-container, .carousel-slide img').forEach(el => {
+            el.style.webkitTransform = 'translate3d(0,0,0)';
+            el.style.transform = 'translate3d(0,0,0)';
+          });
+        };
+        
+        // Executa após um pequeno delay para garantir que o DOM esteja pronto
+        setTimeout(optimizeForiOS, 100);
+        
+        // Também executa quando a janela é redimensionada
+        window.addEventListener('resize', optimizeForiOS);
+      }
     });
   </script>
 </body>
 </html>
-
-
-
