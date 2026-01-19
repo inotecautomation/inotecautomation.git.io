@@ -655,15 +655,6 @@
       .main-header {
         padding: 8px 15px;
       }
-
-
-
-
-.background-fixed::after {
-    background-size: -50% auto; /* 140% da largura */
-  }
-
-
       
       .logo {
         width: 250px; /* SUA MEDIDA */
@@ -757,6 +748,14 @@
       }
     }
     
+    /* Ajuste específico para a imagem de fundo no mobile */
+    @media (max-width: 576px) {
+      .background-fixed::after {
+        background-size: 25% auto !important;
+        background-position: center !important;
+      }
+    }
+    
     /* Ajustes gerais para telas muito grandes */
     @media (min-width: 1600px) {
       .logo {
@@ -793,7 +792,7 @@
     @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
       .background-fixed::after {
         /* Força uma renderização melhor da imagem no Safari mobile */
-        background-size: cover !important;
+        background-size: 25% auto !important;
         background-position: 50% 50% !important;
         -webkit-transform: translate3d(0,0,0) scale(1);
         transform: translate3d(0,0,0) scale(1);
@@ -1068,6 +1067,3 @@
   </script>
 </body>
 </html>
-
-
-
